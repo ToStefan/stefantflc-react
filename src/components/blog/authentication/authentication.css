@@ -1,0 +1,46 @@
+.signinBox {
+    width: 50%;
+}
+
+.signinBox input {
+    width: 70%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 4px;
+    border: none;
+    margin-top: 4%;
+    padding-left: 20px;
+}
+
+.signinBox h2 {
+    color: #d3d3d3;
+    text-shadow: 3px 3px #000000;
+}
+
+.signinBox button {
+    margin-top: 4%;
+    margin-bottom: 5%;
+    width: 35%;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 20px;
+    border: none;
+}
+
+
+@media only screen and (max-width: 570px) {
+
+    .signinBox {
+        width: 100%;
+        margin-top: 8%;
+    }
+    .signinBox input {
+        width: 90%;
+    }
+
+    .signinBox button {
+        width: 55%;
+    }    
+
+
+}

@@ -1,0 +1,25 @@
+.headerButton {
+    width: 44%;
+    height: 40px;
+    border-right: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-radius: 30px;
+    margin-left: 10px;
+    float: left;
+    margin-bottom: 3%;
+}
+
+.headerButton a p, .headerButton a i {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 570px) {
+
+    .headerButton { 
+        height: 20px;
+    }
+    .headerButton a i {
+        display: none;
+    }
+
+}

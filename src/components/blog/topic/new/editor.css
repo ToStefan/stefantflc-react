@@ -1,0 +1,19 @@
+.editor-field {
+    border: 1px solid #000000;
+    width: 600px;
+    height: 300px;
+    background: #000000;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.editor-controll {
+    background: #000000;
+    width: 622px;
+    border-bottom: 1px solid #ffffff;
+}
+
+.editor-controll button {
+    background: #ffffff;
+    margin: 10px;
+}
