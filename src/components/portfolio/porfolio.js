@@ -1,12 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 const Portfolio = () => {
     return (
         <div>
-            <NavLink to="/b">Blog</NavLink>
+            <h1>Under development!</h1>
             <hr />
-            <h1>This is portfolio.</h1>
+            <h3>Portfolio migrated to <a href="https://stefantflc-old.herokuapp.com/">old portfolio.</a></h3>
+            <h3>Check out my <a href="https://github.com/ToStefan/">github.</a></h3>
         </div>
     )
 }
