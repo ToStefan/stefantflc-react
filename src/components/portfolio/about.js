@@ -10,7 +10,7 @@ const About = () => {
             <a href="http://www.hybrid-it.rs/" target="_blank" rel="noopener noreferrer">
                 <img className="roundedImg" src={require("./../../assets/images/hybrid-logo.png")} alt="hybrid it logo" />
             </a>
-            <p><i><b>Hybrid IT Solutions</b> - One month internship as Java backend developer</i></p>
+            <p><i><b>Hybrid IT Solutions</b> - One month internship as Java backend developer (05/2019 - 06/2019)</i></p>
             <p><i>
                 In 3 weeks i developed in Java
                 (spring boot and spring security frameworks) <a href="https://github.com/ToStefan/hybrid-it-lib" target="_blank" rel="noopener noreferrer">
@@ -18,22 +18,21 @@ const About = () => {
                 </a> with help of mentors which was Hybrid IT best practices. Afterwards 2 weeks remote developing also in
                 Spring <a href="https://github.com/ToStefan/hybrid-it-jobs-market" target="_blank" rel="noopener noreferrer">
                     <u>use case</u></a> with <a href="https://jobs.github.com/api" target="_blank" rel="noopener noreferrer">
-                    <u>GitHub Jobs API</u></a> and <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete" 
-                    target="_blank" rel="noopener noreferrer">
+                    <u>GitHub Jobs API</u></a> and <a href="https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete"
+                        target="_blank" rel="noopener noreferrer">
                     <u>Google Place Autocomplete API</u>
                 </a>.
                 Also, writing unit and integration tests, played with swagger, lombok, logging and little bit with docker.
-		</i></p>
+		    </i></p>
             <a href="https://www.apexsql.com/" target="_blank" rel="noopener noreferrer">
                 <img className="roundedImg" src={require("./../../assets/images/apexsql-logo.png")} alt="apexsql logo" />
             </a>
-            <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer</i></p>
-            <p><i>
-                My job was developing feature on ApexSQL Monitor - <a href="https://www.apexsql.com/sql-tools-monitor.aspx" 
-                target="_blank" rel="noopener noreferrer"><u>SQL monitoring tool</u></a> with another intern in Novi Sad office. 
+            <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (06/2017 - 08/2017)</i></p>
+            <p><i>My job was developing feature on ApexSQL Monitor - <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
+                target="_blank" rel="noopener noreferrer"><u>SQL monitoring tool</u></a> with another intern in Novi Sad office.
                 We worked with .NET technologies, AngularJS, Kendo grid, bootstrap, html, css.
                 We were communicate with 6 other interns (Belgrade and Niš office), fixing bugs and doing each other code review.
-		</i></p>
+		    </i></p>
             <hr />
             <p><b><u>Technology stack</u></b></p>
             <p><i>
