@@ -14,8 +14,7 @@ const Home = () => {
             <p><img src={require("./../../assets/images/outlook-icon.png")} alt="outlook icon" /><i>tflc.stefan@hotmail.com</i></p>
             <p><img src={require("./../../assets/images/phone-icon.png")} alt="phone icon" /><i>+381616949453</i></p>
             <p>
-                <i>Path to my</i>
-                <a href="https://github.com/ToStefan" target="_blank" rel="noopener noreferrer">
+                <i>Path to my</i> <a href="https://github.com/ToStefan" target="_blank" rel="noopener noreferrer">
                     <img src={require("./../../assets/images/github-logo.png")} alt="github logo" />
                 </a> <i>and</i> <a href="https://www.linkedin.com/in/tflc-stefan/" target="_blank" rel="noopener noreferrer">
                     <img src={require("./../../assets/images/linkedin-logo.png")} alt="linkedin logo" />

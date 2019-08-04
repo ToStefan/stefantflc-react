@@ -28,8 +28,8 @@ const About = () => {
                 <img className="roundedImg" src={require("./../../assets/images/apexsql-logo.png")} alt="ApexSQL logo" />
             </a>
             <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (06/2017 - 08/2017)</i></p>
-            <p><i>My job was developing feature on ApexSQL Monitor - <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
-                target="_blank" rel="noopener noreferrer"><u>SQL monitoring tool</u></a> with another intern in Novi Sad office.
+            <p><i>My job was developing feature on <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
+                target="_blank" rel="noopener noreferrer"><u>ApexSQL Monitor</u></a> - SQL monitoring tool with another intern in Novi Sad office.
                 We worked with .NET technologies, AngularJS, Kendo grid, bootstrap, html, css.
                 We were communicate with 6 other interns (Belgrade and Niš office), fixing bugs and doing each other code review.
 		    </i></p>
