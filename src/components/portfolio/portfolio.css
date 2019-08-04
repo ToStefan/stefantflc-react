@@ -1,0 +1,50 @@
+body {
+    background: url(./../../assets/images/portfolio-bg.jpg);
+    font-size: 20px !important;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #ffffff !important;
+}
+
+b {
+	color: #ffffff;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.70);
+    box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.85);
+    border-radius: 5px;
+    margin-top: 1%;
+    text-align: center;
+    color: #ffffff;
+    width: 80%;
+    margin-bottom: 5%;
+}
+
+#navigation {
+	width: 50% !important;
+	display: block;
+}
+
+#blogLink, #homeLink {
+	float: left;
+	padding-left: 10%;
+}
+
+#slbLink, #aboutLink {
+	float: right;
+	padding-right: 10%;
+}
+
+.roundedImg {
+	border-radius: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+	#blog-img, #snake-img {
+		width: 100%;
+	}
+}
