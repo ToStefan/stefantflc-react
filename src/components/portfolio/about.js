@@ -8,7 +8,7 @@ const About = () => {
             <hr />
             <p><b><u>Experience</u></b></p>
             <a href="http://www.hybrid-it.rs/" target="_blank" rel="noopener noreferrer">
-                <img className="roundedImg" src={require("./../../assets/images/hybrid-logo.png")} alt="hybrid it logo" />
+                <img className="roundedImg" src={require("./../../assets/images/hybrid-logo.png")} alt="Hybrid IT logo" />
             </a>
             <p><i><b>Hybrid IT Solutions</b> - One month internship as Java backend developer (05/2019 - 06/2019)</i></p>
             <p><i>
@@ -25,7 +25,7 @@ const About = () => {
                 Also, writing unit and integration tests, played with swagger, lombok, logging and little bit with docker.
 		    </i></p>
             <a href="https://www.apexsql.com/" target="_blank" rel="noopener noreferrer">
-                <img className="roundedImg" src={require("./../../assets/images/apexsql-logo.png")} alt="apexsql logo" />
+                <img className="roundedImg" src={require("./../../assets/images/apexsql-logo.png")} alt="ApexSQL logo" />
             </a>
             <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (06/2017 - 08/2017)</i></p>
             <p><i>My job was developing feature on ApexSQL Monitor - <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
