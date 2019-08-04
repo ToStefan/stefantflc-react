@@ -17,9 +17,7 @@ const Home = () => {
                 <i>Path to my</i>
                 <a href="https://github.com/ToStefan" target="_blank" rel="noopener noreferrer">
                     <img src={require("./../../assets/images/github-logo.png")} alt="github logo" />
-                </a>
-                <i>and</i>
-                <a href="https://www.linkedin.com/in/tflc-stefan/" target="_blank" rel="noopener noreferrer">
+                </a> <i>and</i> <a href="https://www.linkedin.com/in/tflc-stefan/" target="_blank" rel="noopener noreferrer">
                     <img src={require("./../../assets/images/linkedin-logo.png")} alt="linkedin logo" />
                 </a>
                 <i>.</i>

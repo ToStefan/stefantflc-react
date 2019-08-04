@@ -28,7 +28,8 @@ const PortfolioRoutes = () => {
                 <Route path="/more-about-me" component={About} />
                 <Route path="/blog" component={BlogInfo} />
                 <Route path="/slb-info" component={SlbInfo} />
-                <Route path="/" component={Home} />
+                <Route path="/" exact component={Home} />
+                <Route component={Home} />
             </Switch>
         </div>
     );
