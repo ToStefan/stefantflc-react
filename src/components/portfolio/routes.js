@@ -12,12 +12,12 @@ const PortfolioRoutes = () => {
     return (
         <div>
             <div id="navigation" className="box container">
-                <div class="row">
+                <div className="row">
                     <div id="homeLink" className="col"><Link to="home">~ <i><b>Home</b></i> ~</Link></div>
                     <div id="aboutLink" className="col"><Link to="more-about-me">~ <i><b>More about me</b></i> ~</Link></div>
                 </div>
                 <hr />
-                <div class="row">
+                <div className="row">
                     <div id="blogLink" className="col"><Link to="blog">~ <i><b>Blog</b></i> ~</Link></div>
                     <div id="slbLink" className="col"><Link to="slb-info">~ <i><b>Super Lazy Boot</b></i> ~</Link></div>
                 </div>
