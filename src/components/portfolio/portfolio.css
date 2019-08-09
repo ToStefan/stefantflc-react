@@ -1,53 +1,75 @@
 body {
     background: url(./../../assets/images/portfolio-bg.jpg);
-    font-size: 20px;
-    padding: 0;
-    margin: 0;
+    font-size: 18px;
 }
 
 a {
-    color: #ffffff !important;
+    color: rgb(255, 255, 255) !important;
 }
 
-b {
-	color: #ffffff;
-}
-
-.box {
-    background-color: rgba(0, 0, 0, 0.70);
-    box-shadow: 5px 6px 6px rgba(0, 0, 0, 0.85);
-    border-radius: 5px;
-    margin-top: 1%;
+.box input {
     text-align: center;
-    color: #ffffff;
-    width: 85%;
-    margin-bottom: 5%;
+    background-color: rgba(0, 0, 0, 0.50);
+    color: rgb(255, 255, 255);
+    width: 60%;
+    margin: auto;
 }
 
-#navigation {
-	width: 50%;
-	display: block;
+.warning-text {
+    color: rgb(255, 200, 0);
 }
 
-#blogLink, #homeLink {
-	float: left;
-	padding-left: 10%;
+.warning-btn {
+	background-color: rgba(255, 165, 0, 0.35);
+	border-radius: 15px;
 }
 
-#slbLink, #aboutLink {
-	float: right;
-	padding-right: 10%;
+.error-btn {
+    background-color: rgba(255, 0, 0, 0.35);
+	border-radius: 15px;  
 }
 
-.roundedImg {
+.rounded-img {
 	border-radius: 8px;
 }
 
+.left-link {
+    float: left;
+    padding-left: 8%;
+}
+
+.right-link {
+    float: right;
+	padding-right: 8%;
+}
+
+.box {
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 8px 8px rgba(0, 0, 0, 0.85);
+    border-radius: 6px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 85%;
+}
+
+.middle-box {
+    width: 60%;
+    padding: 1%;
+}
+
 @media only screen and (max-width: 600px) {
-	#blog-img, #snake-img {
-		width: 100%;
+    .box {
+        margin-top: 5%;
     }
-    #navigation {
+    .box input {
+        width: 90%;
+    }
+	#blog-img, #snake-img {
+        width: 100%;
+    }
+    .middle-box {
         width: 85%;
     }
     body {

@@ -1,38 +1,80 @@
-import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import axios from 'axios';
 
-import Home from './home';
-import SlbInfo from './slb_info';
-import BlogInfo from './blog_info';
-import About from './about';
+import Home from './pages/home';
+import SlbInfo from './pages/slb_info';
+import BlogInfo from './pages/blog_info';
+import About from './pages/about';
+import Register from './pages/register';
+import LogIn from './pages/log_in';
+import LoggedPanel from './bottom_panel/logged_panel';
+import UnloggedPanel from './bottom_panel/unlogged_panel';
+import TopPanel from './top_panel';
+import ClientDetails from './master_pages/client_details';
+import MasterHome from './master_pages/master_home';
+import GuestHome from './guest_pages/guest_home';
 
+import Auth from './../hoc/auth';
+import { API_URL } from '../../config';
 import './portfolio.css';
 
-const PortfolioRoutes = () => {
-    return (
-        <div>
-            <div id="navigation" className="box container">
-                <div className="row">
-                    <div id="homeLink" className="col"><Link to="home">~ <i><b>Home</b></i> ~</Link></div>
-                    <div id="aboutLink" className="col"><Link to="more-about-me">~ <i><b>More about me</b></i> ~</Link></div>
-                </div>
-                <hr />
-                <div className="row">
-                    <div id="blogLink" className="col"><Link to="blog">~ <i><b>Blog</b></i> ~</Link></div>
-                    <div id="slbLink" className="col"><Link to="slb-info">~ <i><b>Super Lazy Boot</b></i> ~</Link></div>
-                </div>
-            </div>
+class PortfolioRoutes extends Component {
 
-            <Switch>
-                <Route path="/home" component={Home} />
-                <Route path="/more-about-me" component={About} />
-                <Route path="/blog" component={BlogInfo} />
-                <Route path="/slb-info" component={SlbInfo} />
-                <Route path="/" exact component={Home} />
-                <Route component={Home} />
-            </Switch>
-        </div>
-    );
-};
+    logout = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        this.props.history.push('/home');
+    }
+
+    loadUser = () => {
+        axios.get(`${API_URL}/auth/me`, {
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem('token')}`
+            }
+        }).then(res => {
+            localStorage.setItem('role', res.data.authorities.length);
+        })
+        this.forceUpdate();
+    }
+
+    componentWillMount() {
+        if (localStorage.getItem("token") !== null) {
+            this.loadUser();
+        }
+    }
+
+    renderBottomPanel() {
+        return localStorage.getItem("token") !== null ? <LoggedPanel logout={this.logout} /> : <UnloggedPanel />
+    }
+
+    render() {
+        return (
+            <div>
+                <TopPanel />
+
+                <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/more-about-me" component={About} />
+                    <Route path="/blog" component={BlogInfo} />
+                    <Route path="/slb-info" component={SlbInfo} />
+
+                    <Route path="/log-in" component={() => <LogIn loadUser={this.loadUser} />} />
+                    <Route path="/register" component={Register} />
+
+                    <Route path="/guest" component={() => <Auth roleLevel={1}><GuestHome /></Auth>} />
+
+                    <Route path="/client-details" component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
+                    <Route path="/master" component={() => <Auth roleLevel={5}><MasterHome /></Auth>} />
+
+                    <Route path="/" component={Home} />
+                </Switch>
+
+                {this.renderBottomPanel()}
+            </div>
+        );
+    }
+}
 
 export default PortfolioRoutes;
