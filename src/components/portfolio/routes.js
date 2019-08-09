@@ -16,15 +16,22 @@ import MasterHome from './master_pages/master_home';
 import GuestHome from './guest_pages/guest_home';
 
 import Auth from './../hoc/auth';
-import { API_URL } from '../../config';
+import PushClientDetails from './../hoc/push_client_details';
+import { API_URL } from './../../config';
 import './portfolio.css';
 
 class PortfolioRoutes extends Component {
+
+    state = {
+        loggedUser: null
+    }
 
     logout = (e) => {
         e.preventDefault();
         localStorage.removeItem('token');
         localStorage.removeItem('role');
+        localStorage.removeItem("loggedUser");
+        this.setState({ loggedUser: null });
         this.props.history.push('/home');
     }
 
@@ -35,6 +42,8 @@ class PortfolioRoutes extends Component {
             }
         }).then(res => {
             localStorage.setItem('role', res.data.authorities.length);
+            localStorage.setItem("loggedUser", res.data.username);
+            this.setState({ loggedUser: res.data.username });
         })
         this.forceUpdate();
     }
@@ -46,7 +55,8 @@ class PortfolioRoutes extends Component {
     }
 
     renderBottomPanel() {
-        return localStorage.getItem("token") !== null ? <LoggedPanel logout={this.logout} /> : <UnloggedPanel />
+        console.log(this.state.loggedUser);
+        return this.state.loggedUser !== null ? <LoggedPanel logout={this.logout} /> : <UnloggedPanel />
     }
 
     render() {
@@ -55,7 +65,7 @@ class PortfolioRoutes extends Component {
                 <TopPanel />
 
                 <Switch>
-                    <Route path="/home" component={Home} />
+                    <Route path="/home" component={() => <PushClientDetails><Home /></PushClientDetails>} />
                     <Route path="/more-about-me" component={About} />
                     <Route path="/blog" component={BlogInfo} />
                     <Route path="/slb-info" component={SlbInfo} />
