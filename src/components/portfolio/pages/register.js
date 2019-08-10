@@ -35,7 +35,10 @@ class Register extends Component {
                     'Content-Type': 'application/json'
                 }
             }).then(res => {
-                this.setState({ messageText: 'Check out e-mail for verification link', messageClass: 'sucess-text' })
+                this.setState({
+                    messageText: 'Check out e-mail for verification link', messageClass: 'success-text', email: "", username: "",
+                    password: "", repeatPassword: "", key: ""
+                })
             })
         }
     }
@@ -61,7 +64,7 @@ class Register extends Component {
                             onChange={(event) => this.setState({ username: event.target.value })}
                             pattern="[A-Za-z1-9]{6,}"
                             type="text"
-                            placeholder="Enter username (characters, numbers, min length: 6)" required />
+                            placeholder="Enter username" required />
                     </div>
                     <div className="form-group">
                         <input
@@ -70,7 +73,7 @@ class Register extends Component {
                             onChange={(event) => this.setState({ password: event.target.value })}
                             pattern="[A-Za-z1-9]{6,}"
                             type="password"
-                            placeholder="Enter password (characters, numbers, min length: 6)"
+                            placeholder="Enter password"
                             required />
                     </div>
                     <div className="form-group">
