@@ -55,7 +55,6 @@ class PortfolioRoutes extends Component {
     }
 
     renderBottomPanel() {
-        console.log(this.state.loggedUser);
         return this.state.loggedUser !== null ? <LoggedPanel logout={this.logout} /> : <UnloggedPanel />
     }
 
