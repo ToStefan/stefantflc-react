@@ -15,8 +15,16 @@ a {
     margin: auto;
 }
 
+.success-text {
+    color: rgb(0, 128, 0);
+}
+
 .warning-text {
     color: rgb(255, 200, 0);
+}
+
+.error-text {
+    color: rgb(255, 0, 0);
 }
 
 .warning-btn {

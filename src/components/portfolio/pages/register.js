@@ -11,31 +11,39 @@ class Register extends Component {
         username: "",
         password: "",
         repeatPassword: "",
-        key: ""
+        key: "",
+        messageText: "Username and/or Password should be characters and/or numbers with minimal length of 6",
+        messageClass: "warning-text"
     }
 
-    submitForm(e) {
-        e.preventDefault();
-        //inputs verification ?
-        let user = JSON.stringify({
+    stringifyUser() {
+        return JSON.stringify({
             username: this.state.username,
             password: this.state.password,
             email: this.state.email,
             information: this.state.key
         })
+    }
+
+    submitForm(e) {
         e.preventDefault();
-        axios.post(`${API_URL}/auth/register`, user, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => {
-            console.log(res);
-        })
+        if (this.state.password !== this.state.repeatPassword)
+            this.setState({ messageText: 'Passwords must be same', messageClass: 'error-text' })
+        else {
+            axios.post(`${API_URL}/auth/register`, this.stringifyUser(), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                this.setState({ messageText: 'Check out e-mail for verification link', messageClass: 'sucess-text' })
+            })
+        }
     }
 
     render() {
         return localStorage.getItem("token") == null ?
             (<div className="container box middle-box">
+                <p className={this.state.messageClass}>{this.state.messageText}</p>
                 <form onSubmit={(event) => this.submitForm(event)}>
                     <div className="form-group">
                         <input
@@ -51,16 +59,18 @@ class Register extends Component {
                             className="form-control"
                             value={this.state.username}
                             onChange={(event) => this.setState({ username: event.target.value })}
+                            pattern="[A-Za-z1-9]{6,}"
                             type="text"
-                            placeholder="Enter username" required />
+                            placeholder="Enter username (characters, numbers, min length: 6)" required />
                     </div>
                     <div className="form-group">
                         <input
                             className="form-control"
                             value={this.state.password}
                             onChange={(event) => this.setState({ password: event.target.value })}
+                            pattern="[A-Za-z1-9]{6,}"
                             type="password"
-                            placeholder="Enter password"
+                            placeholder="Enter password (characters, numbers, min length: 6)"
                             required />
                     </div>
                     <div className="form-group">

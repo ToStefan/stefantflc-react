@@ -70,6 +70,7 @@ class ClientDetails extends Component {
                 </table>
                 <hr />
                 <div className="row">
+                    <div className="col left-link"><Link to="/master">~ <i><b>Go back</b></i> ~</Link></div>
                     <div className="col right-link"><Link onClick={this.getClientDetails}>~ <i><b>Refrash</b></i> ~</Link></div>
                 </div>
             </div>
