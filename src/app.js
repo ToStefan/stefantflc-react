@@ -1,18 +1,18 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import BlogRoutes from './components/blog/routes';
 import PortfolioRoutes from './components/portfolio/routes';
 
 const App = () => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Switch>
                 <Route path="/b" component={BlogRoutes} />
                 <Route path="/" component={PortfolioRoutes} />
                 <Route component={PortfolioRoutes} />
             </Switch>
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
