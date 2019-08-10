@@ -66,10 +66,10 @@ class PortfolioRoutes extends Component {
                 <TopPanel />
 
                 <Switch>
-                    <Route path="/home" exact component={() => <PushClientDetails><Home /></PushClientDetails>} />
+                    <Route path="/home" exact component={() => <PushClientDetails path={"Home"}><Home /></PushClientDetails>} />
                     <Route path="/more-about-me" exact component={About} />
                     <Route path="/blog" exact component={BlogInfo} />
-                    <Route path="/slb-info" exact component={SlbInfo} />
+                    <Route path="/slb-info" exact component={() => <PushClientDetails path={"Slb Info"}><SlbInfo /></PushClientDetails>} />
                     <Route path="/hubspot-form" exact component={HubSpotForm} />
 
                     <Route path="/log-in" exact component={() => <LogIn loadUser={this.loadUser} />} />

@@ -13,7 +13,8 @@ class PushClientDetails extends Component {
             country: data.country,
             city: data.city,
             ip: data.ip,
-            user: null
+            user: null,
+            path: this.props.path
         }
 
         if (typeof localStorage.getItem("loggedUser") !== 'undefined') {

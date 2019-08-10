@@ -25,13 +25,14 @@ class ClientDetails extends Component {
     renderTableData() {
         return this.state.data.map((client, index) => {
             const { id, ip, count, userAgent, country, region, city, location } = client
+            const userAgentCut = userAgent.substring(0, 80)
             return (
                 <tr key={id}>
                     <td>{index + 1}</td>
                     <td>{id}</td>
                     <td><Link to={`/client-details/${ip}`}>{ip}</Link></td>
                     <td>{count}</td>
-                    <td>{userAgent}</td>
+                    <td>{userAgentCut}</td>
                     <td>{country}</td>
                     <td>{region}</td>
                     <td>{city}</td>

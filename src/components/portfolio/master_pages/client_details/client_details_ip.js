@@ -23,12 +23,11 @@ class ClientDetailsIp extends Component {
 
     renderTableData() {
         return this.state.data.map((client) => {
-            const { id, ip, count, user, dateTime, userAgent, country, region, city, location } = client
+            const { id, ip, user, dateTime, userAgent, country, region, city, location, path } = client
             return (
                 <tr key={id}>
                     <td>{id}</td>
                     <td>{ip}</td>
-                    <td>{count}</td>
                     <td>{user}</td>
                     <td>{dateTime}</td>
                     <td>{userAgent}</td>
@@ -36,6 +35,7 @@ class ClientDetailsIp extends Component {
                     <td>{region}</td>
                     <td>{city}</td>
                     <td>{location}</td>
+                    <td>{path}</td>
                 </tr>
             )
         })
@@ -53,13 +53,14 @@ class ClientDetailsIp extends Component {
                         <tr>
                             <th>ID</th>
                             <th>IP</th>
-                            <th>User</th>
+                            <th>user</th>
                             <th>Date/Time</th>
                             <th>User agent</th>
                             <th>Country</th>
                             <th>Region</th>
                             <th>City</th>
                             <th>Location</th>
+                            <th>Path</th>
                         </tr>
                     </thead>
                     <tbody>
