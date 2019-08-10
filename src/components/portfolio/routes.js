@@ -12,7 +12,8 @@ import HubSpotForm from './pages/hubspot_form/hubspot_form';
 import LoggedPanel from './bottom_panel/logged_panel';
 import UnloggedPanel from './bottom_panel/unlogged_panel';
 import TopPanel from './top_panel';
-import ClientDetails from './master_pages/client_details';
+import ClientDetails from './master_pages/client_details/client_details';
+import ClientDetailsIp from './master_pages/client_details/client_details_ip';
 import MasterHome from './master_pages/master_home';
 import GuestHome from './guest_pages/guest_home';
 
@@ -65,21 +66,22 @@ class PortfolioRoutes extends Component {
                 <TopPanel />
 
                 <Switch>
-                    <Route path="/home" component={() => <PushClientDetails><Home /></PushClientDetails>} />
-                    <Route path="/more-about-me" component={About} />
-                    <Route path="/blog" component={BlogInfo} />
-                    <Route path="/slb-info" component={SlbInfo} />
-                    <Route path="/hubspot-form" component={HubSpotForm} />
+                    <Route path="/home" exact component={() => <PushClientDetails><Home /></PushClientDetails>} />
+                    <Route path="/more-about-me" exact component={About} />
+                    <Route path="/blog" exact component={BlogInfo} />
+                    <Route path="/slb-info" exact component={SlbInfo} />
+                    <Route path="/hubspot-form" exact component={HubSpotForm} />
 
-                    <Route path="/log-in" component={() => <LogIn loadUser={this.loadUser} />} />
-                    <Route path="/register" component={Register} />
+                    <Route path="/log-in" exact component={() => <LogIn loadUser={this.loadUser} />} />
+                    <Route path="/register" exact component={Register} />
 
-                    <Route path="/guest" component={() => <Auth roleLevel={1}><GuestHome /></Auth>} />
+                    <Route path="/guest" exact component={() => <Auth roleLevel={1}><GuestHome /></Auth>} />
 
-                    <Route path="/client-details" component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
-                    <Route path="/master" component={() => <Auth roleLevel={5}><MasterHome /></Auth>} />
+                    <Route path="/master" exact component={() => <Auth roleLevel={5}><MasterHome /></Auth>} />
+                    <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
+                    <Route path="/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
 
-                    <Route path="/" component={Home} />
+                    <Route component={Home} />
                 </Switch>
 
                 {this.renderBottomPanel()}

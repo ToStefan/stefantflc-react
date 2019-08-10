@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import './client_details.css'
-import { API_URL } from '../../../config';
+import { API_URL } from '../../../../config';
 
-
-class ClientDetails extends Component {
+class ClientDetailsIp extends Component {
 
     state = {
         data: []
     }
 
     getClientDetails = () => {
-        axios.get(`${API_URL}/client-details`, {
+        axios.get(`${API_URL}/client-details/ip/${this.props.match.params.ip}`, {
             headers: {
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
@@ -23,11 +22,10 @@ class ClientDetails extends Component {
     }
 
     renderTableData() {
-        return this.state.data.map((client, index) => {
+        return this.state.data.map((client) => {
             const { id, ip, count, user, dateTime, userAgent, country, region, city, location } = client
             return (
                 <tr key={id}>
-                    <td>{index + 1}</td>
                     <td>{id}</td>
                     <td>{ip}</td>
                     <td>{count}</td>
@@ -53,10 +51,8 @@ class ClientDetails extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th>#</th>
                             <th>ID</th>
                             <th>IP</th>
-                            <th>Count</th>
                             <th>User</th>
                             <th>Date/Time</th>
                             <th>User agent</th>
@@ -72,12 +68,12 @@ class ClientDetails extends Component {
                 </table>
                 <hr />
                 <div className="row">
-                    <div className="col left-link"><Link to="/master">~ <i><b>Go back</b></i> ~</Link></div>
-                    <div className="col right-link"><Link onClick={this.getClientDetails}>~ <i><b>Refrash</b></i> ~</Link></div>
+                    <div className="col left-link"><Link to="/client-details">~ <i><b>Go back</b></i> ~</Link></div>
+                    <div className="col right-link"><Link to="" onClick={this.getClientDetails}>~ <i><b>Refrash</b></i> ~</Link></div>
                 </div>
             </div>
         );
     }
 }
 
-export default ClientDetails;
+export default ClientDetailsIp;
