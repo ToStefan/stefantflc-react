@@ -23,10 +23,11 @@ class ClientDetails extends Component {
     }
 
     renderTableData() {
-        return this.state.data.map((client) => {
+        return this.state.data.map((client, index) => {
             const { id, ip, count, user, dateTime, userAgent, country, region, city, location } = client
             return (
                 <tr key={id}>
+                    <td>{index + 1}</td>
                     <td>{id}</td>
                     <td>{ip}</td>
                     <td>{count}</td>
@@ -52,6 +53,7 @@ class ClientDetails extends Component {
                 <table>
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>ID</th>
                             <th>IP</th>
                             <th>Count</th>

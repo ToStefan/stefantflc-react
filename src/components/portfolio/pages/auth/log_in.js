@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
-import { API_URL } from '../../../config';
+import { API_URL } from '../../../../config';
 
 class LogIn extends Component {
 

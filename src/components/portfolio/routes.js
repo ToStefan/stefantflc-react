@@ -6,8 +6,9 @@ import Home from './pages/home';
 import SlbInfo from './pages/slb_info';
 import BlogInfo from './pages/blog_info';
 import About from './pages/about';
-import Register from './pages/register';
-import LogIn from './pages/log_in';
+import Register from './pages/auth/register';
+import LogIn from './pages/auth/log_in';
+import HubSpotForm from './pages/hubspot_form/hubspot_form';
 import LoggedPanel from './bottom_panel/logged_panel';
 import UnloggedPanel from './bottom_panel/unlogged_panel';
 import TopPanel from './top_panel';
@@ -68,6 +69,7 @@ class PortfolioRoutes extends Component {
                     <Route path="/more-about-me" component={About} />
                     <Route path="/blog" component={BlogInfo} />
                     <Route path="/slb-info" component={SlbInfo} />
+                    <Route path="/hubspot-form" component={HubSpotForm} />
 
                     <Route path="/log-in" component={() => <LogIn loadUser={this.loadUser} />} />
                     <Route path="/register" component={Register} />

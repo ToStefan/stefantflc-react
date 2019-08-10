@@ -7,7 +7,7 @@ const Home = () => {
             <p><i><u>Greetings!</u></i></p>
             <p><i>My name is Stefan Tofilović and i'm currently looking for my first job.</i></p>
             <p><i>I have few months of experience as intern in two company.</i></p>
-            <p><i>Check out <b><Link to="more-about-me">More about me</Link></b> page to know more about me.</i></p>
+            <p><i>Check out <b><Link to="/more-about-me">More about me</Link></b> page to know more about me.</i></p>
             <hr />
             <p><b>Contact me?</b></p>
             <p><img src={require("./../../../assets/images/outlook-icon.png")} alt="outlook icon" /><i>tflc.stefan@hotmail.com</i></p>
@@ -18,6 +18,10 @@ const Home = () => {
                 <img src={require("./../../../assets/images/viber-icon.png")} alt="viber icon" />
                 <img src={require("./../../../assets/images/whatsapp-icon.png")} alt="whatsapp icon" />
                 <i>+381616949453</i>
+            </p>
+            <p>
+                <img src={require("./../../../assets/images/hubspot-icon.png")} alt="hubspot icon" />
+                <Link to="/hubspot-form">HubSpot form</Link>
             </p>
             <p>
                 <i>Path to my</i> <a href="https://github.com/ToStefan" target="_blank" rel="noopener noreferrer">
