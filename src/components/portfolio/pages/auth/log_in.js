@@ -8,29 +8,39 @@ class LogIn extends Component {
 
     state = {
         username: "",
-        password: ""
+        password: "",
+        messageText: "",
+        isBtnDisabled: false
+    }
+
+    stringifyUser() {
+        return JSON.stringify({
+            username: this.state.username,
+            password: this.state.password
+        })
     }
 
     submitForm(e) {
         e.preventDefault();
-        let user = JSON.stringify({
-            username: this.state.username,
-            password: this.state.password
-        })
-        axios.post(`${API_URL}/auth/login`, user, {
+        this.setState({ isBtnDisabled: true });
+        axios.post(`${API_URL}/auth/login`, this.stringifyUser(), {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
             localStorage.setItem('token', res.data.token);
+            this.setState({ isBtnDisabled: false });
             this.props.loadUser();
             return <Redirect to='/guest' />
-        })
+        }).catch(error => {
+            this.setState({ messageText: error.response.data.errorMessage, isBtnDisabled: false });
+        });
     }
 
     render() {
         return localStorage.getItem("token") == null ?
             (<div className="container box middle-box">
+                <p className="error-text">{this.state.messageText}</p>
                 <form onSubmit={(event) => this.submitForm(event)}>
                     <div className="form-group">
                         <input

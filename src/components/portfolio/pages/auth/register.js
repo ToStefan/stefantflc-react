@@ -13,7 +13,8 @@ class Register extends Component {
         repeatPassword: "",
         key: "",
         messageText: "Username and/or Password should be characters and/or numbers with minimal length of 6",
-        messageClass: "warning-text"
+        messageClass: "warning-text",
+        isBtnDisabled: false
     }
 
     stringifyUser() {
@@ -27,6 +28,7 @@ class Register extends Component {
 
     submitForm(e) {
         e.preventDefault();
+        this.setState({ isBtnDisabled: true });
         if (this.state.password !== this.state.repeatPassword)
             this.setState({ messageText: 'Passwords must be same', messageClass: 'error-text' })
         else {
@@ -36,10 +38,12 @@ class Register extends Component {
                 }
             }).then(res => {
                 this.setState({
-                    messageText: 'Check out e-mail for verification link', messageClass: 'success-text', email: "", username: "",
-                    password: "", repeatPassword: "", key: ""
+                    messageText: 'Check out e-mail for verification link', messageClass: 'success-text', email: '', username: '',
+                    password: '', repeatPassword: '', key: '', isBtnDisabled: false
                 })
-            })
+            }).catch(error => {
+                this.setState({ messageText: error.response.data.errorMessage, messageClass: 'error-text', isBtnDisabled: false });
+            });
         }
     }
 
@@ -93,7 +97,7 @@ class Register extends Component {
                             type="text"
                             placeholder="Enter the key (not requred)" />
                     </div>
-                    <button className="error-btn" type="submit">Join the network</button>
+                    <button className="error-btn" type="submit" disabled={this.state.isBtnDisabled}>Join the network</button>
                 </form>
             </div>
             )
