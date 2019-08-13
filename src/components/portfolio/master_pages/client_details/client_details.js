@@ -1,50 +1,33 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
+import { clientDetailsList } from './../../../../actions/client_details_actions';
 import './client_details.css'
-import { API_URL } from '../../../../config';
-
 
 class ClientDetails extends Component {
 
-    state = {
-        data: []
-    }
-
-    getClientDetails = () => {
-        axios.get(`${API_URL}/client-details`, {
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
-            }
-        }).then(res => {
-            this.setState({ data: res.data });
-        })
-    }
-
-    renderTableData() {
-        return this.state.data.map((client, index) => {
-            const { id, ip, count, userAgent, country, region, city, location } = client
-            const userAgentCut = userAgent.substring(0, 80)
-            return (
-                <tr key={id}>
-                    <td>{index + 1}</td>
-                    <td>{id}</td>
-                    <td><Link to={`/client-details/${ip}`}>{ip}</Link></td>
-                    <td>{count}</td>
-                    <td>{userAgentCut}</td>
-                    <td>{country}</td>
-                    <td>{region}</td>
-                    <td>{city}</td>
-                    <td>{location}</td>
-                </tr>
-            )
-        })
-    }
-
     componentWillMount() {
-        this.getClientDetails();
+        this.props.clientDetailsList();
     }
+
+    renderTableData = (clientDetails) => (
+        clientDetails ?
+            clientDetails.map((client, index) => (
+                <tr key={client.id}>
+                    <td>{index + 1}</td>
+                    <td>{client.id}</td>
+                    <td><Link to={`/client-details/${client.ip}`}>{client.ip}</Link></td>
+                    <td>{client.count}</td>
+                    <td>{client.userAgent.substring(0, 80)}</td>
+                    <td>{client.country}</td>
+                    <td>{client.region}</td>
+                    <td>{client.city}</td>
+                    <td>{client.location}</td>
+                </tr>
+            )) : null
+    )
 
     render() {
         return (
@@ -64,17 +47,27 @@ class ClientDetails extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.renderTableData()}
+                        {this.renderTableData(this.props.data)}
                     </tbody>
                 </table>
                 <hr />
                 <div className="row">
                     <div className="col left-link"><Link to="/master">~ <i><b>Go back</b></i> ~</Link></div>
-                    <div className="col right-link"><Link to="" onClick={this.getClientDetails}>~ <i><b>Refrash</b></i> ~</Link></div>
+                    <div className="col right-link"><Link to="/client-details">~ <i><b>Refrash</b></i> ~</Link></div>
                 </div>
             </div>
         );
     }
 }
 
-export default ClientDetails;
+const mapStateToProps = (state) => {
+    return {
+        data: state.clients.client_details
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({ clientDetailsList }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ClientDetails);
