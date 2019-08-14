@@ -12,10 +12,9 @@ import HubSpotForm from './pages/hubspot_form/hubspot_form';
 import LoggedPanel from './bottom_panel/logged_panel';
 import UnloggedPanel from './bottom_panel/unlogged_panel';
 import TopPanel from './top_panel';
-import ClientDetails from './master_pages/client_details/client_details';
-import ClientDetailsIp from './master_pages/client_details/client_details_ip';
-import MasterHome from './master_pages/master_home';
-import GuestHome from './guest_pages/guest_home';
+import ClientDetails from './client_details/client_details';
+import ClientDetailsIp from './client_details/client_details_ip';
+import NavigationPage from './navigation_page';
 
 import Auth from './../hoc/auth';
 import PushClientDetails from './../hoc/push_client_details';
@@ -75,11 +74,9 @@ class PortfolioRoutes extends Component {
                     <Route path="/log-in" exact component={() => <LogIn loadUser={this.loadUser} />} />
                     <Route path="/register" exact component={Register} />
 
-                    <Route path="/guest" exact component={() => <Auth roleLevel={1}><GuestHome /></Auth>} />
-
-                    <Route path="/master" exact component={() => <Auth roleLevel={5}><MasterHome /></Auth>} />
-                    <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
-                    <Route path="/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
+                    <Route path="/navigator" exact component={() => <Auth roleLevel={5}><NavigationPage /></Auth>} />
+                    <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
+                    <Route path="/navigator/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
 
                     <Route component={Home} />
                 </Switch>

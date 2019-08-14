@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const MasterHome = () => {
+const NavigationPage = () => {
     return (
         <div className="box middle-box container">
-            <h3><b>Master Page</b></h3>
+            <h3><b>Navigation page</b></h3>
             <hr />
             <div className="row">
                 <div className="col left-link">
@@ -15,4 +15,4 @@ const MasterHome = () => {
     );
 };
 
-export default MasterHome;
+export default NavigationPage;

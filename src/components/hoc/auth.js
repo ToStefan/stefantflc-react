@@ -4,6 +4,8 @@ import NotAuthorized from './../not_authorized';
 const Auth = (props) => {
     if (localStorage.getItem('role') >= props.roleLevel) {
         return props.children;
+    } else if (props.roleLevel === 0) {
+        return props.children;
     } else {
         return <NotAuthorized />
     }

@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { clientDetailsByIpList } from './../../../../actions/client_details_actions';
+import { clientDetailsList } from './../../../actions';
 import './client_details.css'
 
-class ClientDetailsIp extends Component {
+class ClientDetails extends Component {
 
     componentWillMount() {
-        this.props.clientDetailsByIpList(this.props.match.params.ip)
+        this.props.clientDetailsList();
     }
 
     renderTableData = (clientDetails) => (
@@ -18,15 +18,13 @@ class ClientDetailsIp extends Component {
                 <tr key={client.id}>
                     <td>{index + 1}</td>
                     <td>{client.id}</td>
-                    <td>{client.ip}</td>
-                    <td>{client.user}</td>
-                    <td>{client.dateTime}</td>
-                    <td>{client.userAgent}</td>
+                    <td><Link to={`/navigator/client-details/${client.ip}`}>{client.ip}</Link></td>
+                    <td>{client.count}</td>
+                    <td>{client.userAgent.substring(0, 80)}</td>
                     <td>{client.country}</td>
                     <td>{client.region}</td>
                     <td>{client.city}</td>
                     <td>{client.location}</td>
-                    <td>{client.path}</td>
                 </tr>
             )) : null
     )
@@ -34,25 +32,18 @@ class ClientDetailsIp extends Component {
     render() {
         return (
             <div className="box container">
-                <div className="row">
-                    <div className="col left-link"><Link to="/client-details">~ <i><b>Go back</b></i> ~</Link></div>
-                    <div className="col right-link"><Link to={`/client-details/${this.props.match.params.ip}`}>~ <i><b>Refrash</b></i> ~</Link></div>
-                </div>
-                <hr />
                 <table>
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>ID</th>
                             <th>IP</th>
-                            <th>User</th>
-                            <th>Date/Time</th>
+                            <th>Count</th>
                             <th>User agent</th>
                             <th>Country</th>
                             <th>Region</th>
                             <th>City</th>
                             <th>Location</th>
-                            <th>Path</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,8 +52,8 @@ class ClientDetailsIp extends Component {
                 </table>
                 <hr />
                 <div className="row">
-                    <div className="col left-link"><Link to="/client-details">~ <i><b>Go back</b></i> ~</Link></div>
-                    <div className="col right-link"><Link to={`/client-details/${this.props.match.params.ip}`}>~ <i><b>Refrash</b></i> ~</Link></div>
+                    <div className="col left-link"><Link to="/navigator">~ <i><b>Go back</b></i> ~</Link></div>
+                    <div className="col right-link"><Link to="/navigator/client-details">~ <i><b>Refrash</b></i> ~</Link></div>
                 </div>
             </div>
         );
@@ -71,12 +62,12 @@ class ClientDetailsIp extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.clients.client_details_ip
+        data: state.clients.client_details
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ clientDetailsByIpList }, dispatch)
+    return bindActionCreators({ clientDetailsList }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ClientDetailsIp);
+export default connect(mapStateToProps, mapDispatchToProps)(ClientDetails);
