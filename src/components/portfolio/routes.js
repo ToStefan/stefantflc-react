@@ -74,7 +74,7 @@ class PortfolioRoutes extends Component {
                     <Route path="/log-in" exact component={() => <LogIn loadUser={this.loadUser} />} />
                     <Route path="/register" exact component={Register} />
 
-                    <Route path="/navigator" exact component={() => <Auth roleLevel={5}><NavigationPage /></Auth>} />
+                    <Route path="/navigator" exact component={NavigationPage} />
                     <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
                     <Route path="/navigator/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
 
