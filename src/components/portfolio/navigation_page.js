@@ -8,7 +8,7 @@ const NavigationPage = () => {
             <hr />
             <div className="row">
                 <div className="col left-link">
-                    <Link to="client-details">~ <i><b>Client details</b></i> ~</Link>
+                    <Link to="/navigator/client-details">~ <i><b>Client details</b></i> ~</Link>
                 </div>
             </div>
         </div>
