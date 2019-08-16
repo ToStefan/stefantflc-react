@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
 
 import Home from './pages/home';
 import SlbInfo from './pages/slb_info';
@@ -9,82 +8,54 @@ import About from './pages/about';
 import Register from './pages/auth/register';
 import LogIn from './pages/auth/log_in';
 import HubSpotForm from './pages/hubspot_form/hubspot_form';
-import LoggedPanel from './bottom_panel/logged_panel';
-import UnloggedPanel from './bottom_panel/unlogged_panel';
+
+import BottomPanel from './bottom_panel';
 import TopPanel from './top_panel';
+
+import NavigationPanel from './navigation_panel';
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
-import NavigationPage from './navigation_page';
 
 import Auth from './../hoc/auth';
 import PushClientDetails from './../hoc/push_client_details';
-import { API_URL } from './../../config';
+
 import './portfolio.css';
 
-class PortfolioRoutes extends Component {
+const Routes = () => {
+    return (
+        <div>
+            <TopPanel />
 
-    state = {
-        loggedUser: null
-    }
+            <Switch>
+                <Route path="/home" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"Home"}>
+                            <Home />
+                        </PushClientDetails>
+                    </Auth>} />
+                <Route path="/slb-info" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"Slb Info"}>
+                            <SlbInfo />
+                        </PushClientDetails>
+                    </Auth>} />
+                <Route path="/more-about-me" exact component={About} />
+                <Route path="/blog" exact component={BlogInfo} />
+                <Route path="/hubspot-form" exact component={HubSpotForm} />
 
-    logout = (e) => {
-        e.preventDefault();
-        localStorage.removeItem('token');
-        localStorage.removeItem('role');
-        localStorage.removeItem("loggedUser");
-        this.setState({ loggedUser: null });
-        this.props.history.push('/home');
-    }
+                <Route path="/log-in" exact component={LogIn} />
+                <Route path="/register" exact component={Register} />
 
-    loadUser = () => {
-        axios.get(`${API_URL}/auth/me`, {
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem('token')}`
-            }
-        }).then(res => {
-            localStorage.setItem('role', res.data.authorities.length);
-            localStorage.setItem("loggedUser", res.data.username);
-            this.setState({ loggedUser: res.data.username });
-        })
-        this.forceUpdate();
-    }
+                <Route path="/navigator" exact component={() => <Auth roleLevel={0}><NavigationPanel /></Auth>} />
+                <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
+                <Route path="/navigator/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
 
-    componentWillMount() {
-        if (localStorage.getItem("token") !== null) {
-            this.loadUser();
-        }
-    }
+                <Route component={Home} />
+            </Switch>
 
-    renderBottomPanel() {
-        return this.state.loggedUser !== null ? <LoggedPanel logout={this.logout} /> : <UnloggedPanel />
-    }
+            <BottomPanel />
+        </div>
+    );
+};
 
-    render() {
-        return (
-            <div>
-                <TopPanel />
-
-                <Switch>
-                    <Route path="/home" exact component={() => <PushClientDetails path={"Home"}><Home /></PushClientDetails>} />
-                    <Route path="/more-about-me" exact component={About} />
-                    <Route path="/blog" exact component={BlogInfo} />
-                    <Route path="/slb-info" exact component={() => <PushClientDetails path={"Slb Info"}><SlbInfo /></PushClientDetails>} />
-                    <Route path="/hubspot-form" exact component={HubSpotForm} />
-
-                    <Route path="/log-in" exact component={() => <LogIn loadUser={this.loadUser} />} />
-                    <Route path="/register" exact component={Register} />
-
-                    <Route path="/navigator" exact component={NavigationPage} />
-                    <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
-                    <Route path="/navigator/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
-
-                    <Route component={Home} />
-                </Switch>
-
-                {this.renderBottomPanel()}
-            </div>
-        );
-    }
-}
-
-export default PortfolioRoutes;
+export default Routes;

@@ -1,62 +1,41 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { API_URL } from '../../../../config';
+import { register } from './../../../../actions';
 
 class Register extends Component {
 
-    state = {
-        email: "",
-        username: "",
-        password: "",
-        repeatPassword: "",
-        key: "",
-        messageText: "Username and/or Password should be characters and/or numbers with minimal length of 6",
-        messageClass: "warning-text",
-        isBtnDisabled: false
-    }
-
-    stringifyUser() {
-        return JSON.stringify({
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
-            information: this.state.key
-        })
-    }
-
-    submitForm(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ isBtnDisabled: true });
-        if (this.state.password !== this.state.repeatPassword)
-            this.setState({ messageText: 'Passwords must be same', messageClass: 'error-text' })
+        if (e.target.password.value !== e.target.repeatPassword.value) {
+            this.props.data.regMsg = 'Passwords must be same';
+            this.props.data.regMsgClass = 'error-text';
+            this.forceUpdate();
+        }
         else {
-            axios.post(`${API_URL}/auth/register`, this.stringifyUser(), {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => {
-                this.setState({
-                    messageText: 'Check out e-mail for verification link', messageClass: 'success-text', email: '', username: '',
-                    password: '', repeatPassword: '', key: '', isBtnDisabled: false
-                })
-            }).catch(error => {
-                this.setState({ messageText: error.response.data.errorMessage, messageClass: 'error-text', isBtnDisabled: false });
-            });
+            this.props.data.regBtnDisabled = true;
+            this.forceUpdate();
+            const user = {
+                email: e.target.email.value,
+                username: e.target.username.value,
+                password: e.target.password.value,
+                key: e.target.key.value
+            }
+            this.props.register(user);
         }
     }
 
     render() {
-        return localStorage.getItem("token") == null ?
+        return this.props.data.isLogged === false ?
             (<div className="container box middle-box">
-                <p className={this.state.messageClass}>{this.state.messageText}</p>
-                <form onSubmit={(event) => this.submitForm(event)}>
+                <p className={this.props.data.regMsgClass}>{this.props.data.regMsg}</p>
+                <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.email}
-                            onChange={(event) => this.setState({ email: event.target.value })}
+                            name="email"
                             type="email"
                             placeholder="Enter e-mail"
                             required />
@@ -64,8 +43,7 @@ class Register extends Component {
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.username}
-                            onChange={(event) => this.setState({ username: event.target.value })}
+                            name="username"
                             pattern="[A-Za-z1-9]{6,}"
                             type="text"
                             placeholder="Enter username" required />
@@ -73,8 +51,7 @@ class Register extends Component {
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.password}
-                            onChange={(event) => this.setState({ password: event.target.value })}
+                            name="password"
                             pattern="[A-Za-z1-9]{6,}"
                             type="password"
                             placeholder="Enter password"
@@ -83,8 +60,7 @@ class Register extends Component {
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.repeatPassword}
-                            onChange={(event) => this.setState({ repeatPassword: event.target.value })}
+                            name="repeatPassword"
                             type="password"
                             placeholder="Enter password again"
                             required />
@@ -92,12 +68,11 @@ class Register extends Component {
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.key}
-                            onChange={(event) => this.setState({ key: event.target.value })}
+                            name="key"
                             type="text"
                             placeholder="Enter the key (not requred)" />
                     </div>
-                    <button className="error-btn" type="submit" disabled={this.state.isBtnDisabled}>Join the network</button>
+                    <button className="error-btn" type="submit" disabled={this.props.data.regBtnDisabled}>Join the network</button>
                 </form>
             </div>
             )
@@ -106,4 +81,7 @@ class Register extends Component {
     }
 }
 
-export default Register;
+const mapStateToProps = (state) => { return { data: state.auth } }
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({ register }, dispatch) }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

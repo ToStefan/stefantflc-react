@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavigationPage = () => {
+const NavigationPanel = () => {
     return (
         <div className="box middle-box container">
             <h3><b>Navigation page</b></h3>
@@ -15,4 +15,4 @@ const NavigationPage = () => {
     );
 };
 
-export default NavigationPage;
+export default NavigationPanel;

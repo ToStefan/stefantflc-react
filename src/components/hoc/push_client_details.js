@@ -1,38 +1,13 @@
 import { Component } from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { API_URL } from './../../config';
+import { pushClientDetails } from '../../actions';
 
 class PushClientDetails extends Component {
 
-    pushClientDetails(data) {
-        let client = {
-            userAgent: navigator.userAgent,
-            location: data.loc,
-            region: data.region,
-            country: data.country,
-            city: data.city,
-            ip: data.ip,
-            user: null,
-            path: this.props.path
-        }
-
-        if (typeof localStorage.getItem("loggedUser") !== 'undefined') {
-            client.user = localStorage.getItem("loggedUser");
-        }
-
-        axios.post(`${API_URL}/client-details`, JSON.stringify(client), {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-    }
-
-    componentWillMount() {
-        axios.get(`https://ipinfo.io?token=0967b2ba8c74d7`)
-            .then(res => {
-                this.pushClientDetails(res.data);
-            })
+    componentDidMount() {
+        this.props.pushClientDetails(this.props.data.loggedUser, this.props.path);
     }
 
     render() {
@@ -40,4 +15,7 @@ class PushClientDetails extends Component {
     }
 }
 
-export default PushClientDetails;
+const mapStateToProps = (state) => { return { data: state.auth } }
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({ pushClientDetails }, dispatch) }
+
+export default connect(mapStateToProps, mapDispatchToProps)(PushClientDetails);

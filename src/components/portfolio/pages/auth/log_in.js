@@ -1,52 +1,28 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { API_URL } from '../../../../config';
+import { login, loadUser } from './../../../../actions';
 
 class LogIn extends Component {
 
-    state = {
-        username: "",
-        password: "",
-        messageText: "",
-        isBtnDisabled: false
-    }
-
-    stringifyUser() {
-        return JSON.stringify({
-            username: this.state.username,
-            password: this.state.password
-        })
-    }
-
-    submitForm(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
-        this.setState({ isBtnDisabled: true });
-        axios.post(`${API_URL}/auth/login`, this.stringifyUser(), {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(res => {
-            localStorage.setItem('token', res.data.token);
-            this.setState({ isBtnDisabled: false });
-            this.props.loadUser();
-            return <Redirect to='/guest' />
-        }).catch(error => {
-            this.setState({ messageText: error.response.data.errorMessage, isBtnDisabled: false });
-        });
+        this.props.data.loginBtnDisabled = true;
+        this.forceUpdate();
+        this.props.login(e.target.username.value, e.target.password.value);
     }
 
     render() {
-        return localStorage.getItem("token") == null ?
+        return this.props.data.isLogged === false ?
             (<div className="container box middle-box">
-                <p className="error-text">{this.state.messageText}</p>
-                <form onSubmit={(event) => this.submitForm(event)}>
+                <p className="error-text">{this.props.data.loginErrorMsg}</p>
+                <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.username}
-                            onChange={(event) => this.setState({ username: event.target.value })}
+                            name="username"
                             type="text"
                             placeholder="Enter your username"
                             required />
@@ -54,13 +30,12 @@ class LogIn extends Component {
                     <div className="form-group">
                         <input
                             className="form-control"
-                            value={this.state.password}
-                            onChange={(event) => this.setState({ password: event.target.value })}
+                            name="password"
                             type="password"
                             placeholder="Enter your password"
                             required />
                     </div>
-                    <button className="warning-btn" type="submit">Enter the network</button>
+                    <button className="warning-btn" type="submit" disabled={this.props.data.loginBtnDisabled}>Enter the network</button>
                 </form>
             </div>
             )
@@ -69,4 +44,7 @@ class LogIn extends Component {
     }
 }
 
-export default LogIn;
+const mapStateToProps = (state) => { return { data: state.auth } }
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({ login, loadUser }, dispatch) }
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
