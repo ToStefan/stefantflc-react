@@ -17,7 +17,7 @@ class BottomPanel extends Component {
         return this.props.data.isLogged === true ?
             <div className="container box middle-box">
                 <div className="row">
-                    <div className="col left-link" ><Link to="/navigator">~ <i><b>Navigation page</b></i> ~</Link></div>
+                    <div className="col left-link" ><Link to="/navigator">~ <i><b>Navigation panel</b></i> ~</Link></div>
                     <div className="col right-link" ><Link to="/home" onClick={this.props.logout}>~ <i><b>Logout</b></i> ~</Link></div>
                 </div>
                 <hr />

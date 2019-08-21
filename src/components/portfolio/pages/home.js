@@ -10,6 +10,7 @@ const Home = () => {
             <p><i>Check out <b><Link to="/more-about-me">More about me</Link></b> page to know more about me.</i></p>
             <hr />
             <p><b>Contact me?</b></p>
+            <p><i>Talk with me on website </i><Link to="/chat"><b>&gt;&gt; Chat &lt;&lt;</b></Link></p>
             <p><img src={require("./../../../assets/images/outlook-icon.png")} alt="outlook icon" /><i>tflc.stefan@hotmail.com</i></p>
             <p>
                 <a href="https://t.me/Tstefan" target="_blank" rel="noopener noreferrer">
