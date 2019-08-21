@@ -1,0 +1,123 @@
+#scrolling-wrapper {
+    overflow-y: scroll;
+    white-space: nowrap;
+}
+
+.msg-list {
+    border: 1px solid rgb(255, 255, 255);
+    background: rgba(255, 255,255, 0.4);
+    border-radius: 20px;
+    margin: auto;
+    max-height: 450px;
+}
+
+
+/* Top message data */
+.msg-data {
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+}
+
+.msg-data-sent {
+    text-align: right;
+    margin-right: 4%;
+}
+
+.msg-data-received {
+    text-align: left;
+    margin-left: 4%;
+}
+
+.msg-data-time {
+    margin-left: 3%;
+}
+
+
+/* Message */
+.msg {
+    margin: 11px;
+    font-size: 14px;
+    border-radius: 15px;
+    padding: 5px;
+    position: relative;
+}
+
+.msg-sent {
+    background-color: rgba(13, 199, 143, 0.45);
+    text-align: right;
+    padding-right: 20px;
+}
+
+.msg-received {
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: left;
+    padding-left: 20px;
+}
+
+
+/* Message triangle */
+.msg:after {
+    bottom: 100%;
+    content: "";
+    position: absolute;
+    border: 10px solid transparent;
+}
+
+.msg-sent:after {
+    right: 5%;
+    border-bottom-color: rgba(13, 199, 143, 0.45);
+}
+
+.msg-received:after {
+    left: 5%;
+    border-bottom-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* Message form (input/button)  */
+.msg-field-form {
+    width: 60%;
+}
+
+.msg-field-form input {
+    float:left;
+    text-align: left !important;
+    width: 86% !important;
+    border: none;
+}
+
+.msg-field-form button {
+    float:right;
+    background-color:rgba(13, 199, 143, 0.3);
+    width: 12%;
+    border: 1px solid rgb(255, 255, 255);   
+}
+
+.msg-field-form input, .msg-field-form button {
+    border-radius: 15px;
+    height: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .msg-field-form, .msg-field-form input {
+        width: 100% !important;
+    }
+    .msg-field-form button {
+        width: 30%;
+        height: 30px;
+        margin-top: 5%;
+    }
+    .msg-sent:after {
+        right: 20%;
+    }
+    .msg-received:after {
+        left: 20%;
+    }
+    .msg-data-sent {
+        margin-right: 20%;
+    }
+    
+    .msg-data-received {
+        margin-left: 20%;
+    }
+}

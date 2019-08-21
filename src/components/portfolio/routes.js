@@ -15,6 +15,7 @@ import TopPanel from './top_panel';
 import NavigationPanel from './navigation_panel';
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
+import ChatContainer from './../chat/chat_container';
 
 import Auth from './../hoc/auth';
 import PushClientDetails from './../hoc/push_client_details';
@@ -45,6 +46,8 @@ const Routes = () => {
 
                 <Route path="/log-in" exact component={LogIn} />
                 <Route path="/register" exact component={Register} />
+
+                <Route path="/chat" component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
 
                 <Route path="/navigator" exact component={() => <Auth roleLevel={0}><NavigationPanel /></Auth>} />
                 <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
