@@ -4,7 +4,7 @@ import Stomp from 'stompjs';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { previousMessages, sendMessage, onNewMessage } from '../../actions';
+import { previousMessages, sendMessage, onNewMessage, loadUser } from '../../actions';
 
 import ChatMessages from './chat_messages';
 import ChatForm from './chat_form';
@@ -30,15 +30,18 @@ class ChatContainer extends Component {
 
     sendMessage = (e) => {
         e.preventDefault();
-        const message = {
-            message: e.target.message.value,
-            from: 'v'
+        if (e.target.message.value !== "") {
+            const message = {
+                message: e.target.message.value,
+                from: this.props.loggedUser
+            }
+            e.target.message.value = "";
+            this.props.sendMessage(message);
         }
-        e.target.message.value = "";
-        this.props.sendMessage(message);
     }
 
     componentWillMount() {
+        this.props.loadUser();
         this.props.previousMessages();
         this.connectWebSocket();
     }
@@ -63,6 +66,6 @@ const mapStateToProps = (state) => {
         loggedUser: state.auth.loggedUser
     }
 }
-const mapDispatchToProps = (dispatch) => { return bindActionCreators({ previousMessages, sendMessage, onNewMessage }, dispatch) }
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({ previousMessages, sendMessage, onNewMessage, loadUser }, dispatch) }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatContainer);
