@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const NotAuthorized = () => {
+const authlvl = (lvl) => (
+    lvl === 0 ?
+        <h3 className="warning-text">You need to login</h3>
+        :
+        <h3 className="error-text">You are not authorized!</h3>
+)
+
+const NotAuthorized = (props) => {
     return (
         <div className="container box middle-box">
-            <h3 className="error-text"> You are not authorized!</h3>
-            <h4 className="error-text">Please log in...</h4>
+            {authlvl(props.authlvl)}
             <hr />
-            <div className="row">
-                <div className="left-link" >
-                    <Link to="/home">~ <i><b> Go back</b></i> ~</Link>
-                </div>
-            </div>
         </div>
     );
 };

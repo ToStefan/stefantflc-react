@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { register } from './../../../../actions';
+import { register } from '../../../actions';
 
 class Register extends Component {
 
@@ -38,6 +38,7 @@ class Register extends Component {
                             name="email"
                             type="email"
                             placeholder="Enter e-mail"
+                            autoComplete="off"
                             required />
                     </div>
                     <div className="form-group">
@@ -46,7 +47,9 @@ class Register extends Component {
                             name="username"
                             pattern="[A-Za-z1-9]{6,}"
                             type="text"
-                            placeholder="Enter username" required />
+                            placeholder="Enter username"
+                            autoComplete="off"
+                            required />
                     </div>
                     <div className="form-group">
                         <input
@@ -70,6 +73,7 @@ class Register extends Component {
                             className="form-control"
                             name="key"
                             type="text"
+                            autoComplete="off"
                             placeholder="Enter the key (not requred)" />
                     </div>
                     <button className="error-btn" type="submit" disabled={this.props.data.regBtnDisabled}>Join the network</button>

@@ -18,6 +18,8 @@ class Auth extends Component {
             return this.props.children;
         } else if (this.props.roleLevel === 0) {
             return this.props.children;
+        } else if (this.props.data.isLogged === false) {
+            return <NotAuthorized authlvl={0} />
         } else {
             return <NotAuthorized />
         }

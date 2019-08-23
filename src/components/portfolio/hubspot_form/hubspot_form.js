@@ -10,9 +10,10 @@ const HubSpotForm = () => {
                 <HubspotForm
                     portalId='6260184'
                     formId='8333ac28-6116-4d6b-8fc9-c289edcd4583'
+                    loading={<div>Loading...</div>}
                 />
             </div>
-        </div>
+        </div >
     );
 };
 

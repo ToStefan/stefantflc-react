@@ -18,7 +18,7 @@ class ClientDetails extends Component {
                 <tr key={client.id}>
                     <td>{index + 1}</td>
                     <td>{client.id}</td>
-                    <td><Link to={`/navigator/client-details/${client.ip}`}>{client.ip}</Link></td>
+                    <td><Link to={`/client-details/${client.ip}`}>{client.ip}</Link></td>
                     <td>{client.count}</td>
                     <td>{client.userAgent.substring(0, 80)}</td>
                     <td>{client.country}</td>
@@ -52,8 +52,7 @@ class ClientDetails extends Component {
                 </table>
                 <hr />
                 <div className="row">
-                    <div className="col left-link"><Link to="/navigator">~ <i><b>Go back</b></i> ~</Link></div>
-                    <div className="col right-link"><Link to="/navigator/client-details">~ <i><b>Refrash</b></i> ~</Link></div>
+                    <div className="col right-link"><Link to="/client-details"><i><b>Refrash</b></i></Link></div>
                 </div>
             </div>
         );

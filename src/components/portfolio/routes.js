@@ -1,18 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Home from './pages/home';
-import SlbInfo from './pages/slb_info';
-import BlogInfo from './pages/blog_info';
-import About from './pages/about';
-import Register from './pages/auth/register';
-import LogIn from './pages/auth/log_in';
-import HubSpotForm from './pages/hubspot_form/hubspot_form';
+import Contact from './info/contact';
+import SlbInfo from './info/slb_info';
+import About from './info/about';
 
-import BottomPanel from './bottom_panel';
-import TopPanel from './top_panel';
+import Register from './auth/register';
+import LogIn from './auth/log_in';
 
-import NavigationPanel from './navigation_panel';
+import HubSpotForm from './hubspot_form/hubspot_form';
+
+import Navigation from './navigation';
+
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
 import ChatContainer from './../chat/chat_container';
@@ -25,38 +24,36 @@ import './portfolio.css';
 const Routes = () => {
     return (
         <div>
-            <TopPanel />
+            <Auth roleLevel={0}><Navigation /></Auth>
 
             <Switch>
-                <Route path="/home" exact component={() =>
-                    <Auth roleLevel={0}>
-                        <PushClientDetails path={"Home"}>
-                            <Home />
-                        </PushClientDetails>
-                    </Auth>} />
+                <Route path="/contact" exact component={Contact} />
                 <Route path="/slb-info" exact component={() =>
                     <Auth roleLevel={0}>
                         <PushClientDetails path={"Slb Info"}>
                             <SlbInfo />
                         </PushClientDetails>
                     </Auth>} />
-                <Route path="/more-about-me" exact component={About} />
-                <Route path="/blog" exact component={BlogInfo} />
+                <Route path="/about" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"About"}>
+                            <About />
+                        </PushClientDetails>
+                    </Auth>} />
+
                 <Route path="/hubspot-form" exact component={HubSpotForm} />
 
                 <Route path="/log-in" exact component={LogIn} />
                 <Route path="/register" exact component={Register} />
 
-                <Route path="/chat" component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
+                <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
 
-                <Route path="/navigator" exact component={() => <Auth roleLevel={0}><NavigationPanel /></Auth>} />
-                <Route path="/navigator/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
-                <Route path="/navigator/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
+                <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
+                <Route path="/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
 
-                <Route component={Home} />
+                <Route component={Contact} />
             </Switch>
 
-            <BottomPanel />
         </div>
     );
 };

@@ -8,7 +8,7 @@ const ChatMessages = (props) => {
     const loggedUser = props.loggedUser;
     const messages = props.data;
     let msgListContent = null;
-    messages !== null && typeof messages !== 'undefined' ?
+    messages ?
         msgListContent = messages.map((msg, index) => (
             loggedUser === msg.from ?
                 <div key={index}>

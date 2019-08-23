@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { login, loadUser } from './../../../../actions';
+import { login, loadUser } from '../../../actions';
 
 class LogIn extends Component {
 
@@ -25,6 +25,7 @@ class LogIn extends Component {
                             name="username"
                             type="text"
                             placeholder="Enter your username"
+                            autoComplete="off"
                             required />
                     </div>
                     <div className="form-group">
