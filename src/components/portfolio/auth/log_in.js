@@ -14,6 +14,10 @@ class LogIn extends Component {
         this.props.login(e.target.username.value, e.target.password.value);
     }
 
+    componentWillUnmount() {
+        this.props.data.loginErrorMsg = '';
+    }
+
     render() {
         return this.props.data.isLogged === false ?
             (<div className="container box middle-box">

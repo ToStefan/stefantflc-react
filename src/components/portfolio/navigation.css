@@ -1,0 +1,52 @@
+nav {
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 60%;
+    margin: auto;
+    box-shadow: 7px 8px 8px rgba(0, 0, 0, 0.85);
+}
+
+nav hr {
+    display: none;
+}
+
+a:hover {
+    color: rgb(255, 0, 0) !important;
+    background: none !important;
+}
+
+nav a:focus {
+    background: none !important;
+}
+
+.navbar-toggle, .icon-bar {
+    border:1px solid rgb(255, 255, 255) !important;
+}
+
+.navbar-left {
+    width: 70% !important;
+}
+
+.navbar-right {
+    width: 30% !important;
+}
+
+@media only screen and (max-width: 767px) {
+    nav {
+        width: 85%;
+    }
+    nav {
+        text-align: center;
+    }
+    nav ul {
+        margin: 0 !important;
+    }
+    nav hr {
+        display: block;
+    }
+    nav a {
+        line-height: 10px !important;
+    }
+    .navbar-left, .navbar-right{
+        width: 100% !important;
+    }
+}

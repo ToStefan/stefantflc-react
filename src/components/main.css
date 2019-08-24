@@ -1,20 +1,12 @@
 body {
-    background: url(./../../assets/images/portfolio-bg.jpg);
+    background: url(../assets/images/portfolio-bg.jpg);
     font-size: 18px;
     padding-top: 20px;
+    outline:none;
 }
 
 a {
     color: rgb(255, 255, 255) !important;
-}
-
-.box input {
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
-    width: 60%;
-    height: 39px;
-    margin: auto;
 }
 
 .success-text {
@@ -43,14 +35,13 @@ a {
 	border-radius: 6px;
 }
 
-.left-link {
-    float: left;
-    padding-left: 8%;
-}
-
-.right-link {
-    float: right;
-	padding-right: 8%;
+.box input {
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    width: 60%;
+    height: 39px;
+    margin: auto;
 }
 
 .box {
@@ -72,26 +63,6 @@ a {
     width: 40%;
 }
 
-nav {
-    background-color: rgba(0, 0, 0, 0.75);
-    width: 60%;
-    margin: auto;
-    box-shadow: 7px 8px 8px rgba(0, 0, 0, 0.85);
-}
-
-nav hr {
-    display: none;
-}
-
-a:hover, nav a:focus {
-    color: rgb(255, 0, 0) !important;
-    background: none !important;
-}
-
-.navbar-toggle, .icon-bar {
-    border:1px solid rgb(255, 255, 255) !important;
-}
-
 @media only screen and (max-width: 600px) {
     .box {
         margin-top: 5%;
@@ -109,19 +80,7 @@ a:hover, nav a:focus {
 }
 
 @media only screen and (max-width: 767px) {
-    .middle-box, .small-box, nav {
+    .middle-box, .small-box {
         width: 85%;
-    }
-    nav {
-        text-align: center;
-    }
-    nav ul {
-        margin: 0 !important;
-    }
-    nav hr {
-        display: block;
-    }
-    nav a {
-        line-height: 10px !important;
     }
 }

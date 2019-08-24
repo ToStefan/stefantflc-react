@@ -4,12 +4,15 @@ const initState = {
     loginErrorMsg: '',
     loginBtnDisabled: false,
 
-    regMsgClass: 'warning-text',
-    regMsg: 'Username and/or Password should be characters and/or numbers with minimal length of 6',
+    regMsgClass: '',
+    regMsg: '',
     regBtnDisabled: false,
 
     loggedUser: null,
-    role: null
+    role: null,
+
+    regMsgClassDefault: 'warning-text',
+    regMsgDefault: 'Username and/or Password should be characters and/or numbers with minimal length of 6'
 }
 
 export default function (state = initState, action) {

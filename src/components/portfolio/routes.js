@@ -19,7 +19,7 @@ import ChatContainer from './../chat/chat_container';
 import Auth from './../hoc/auth';
 import PushClientDetails from './../hoc/push_client_details';
 
-import './portfolio.css';
+import '../main.css';
 
 const Routes = () => {
     return (

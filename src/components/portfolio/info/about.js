@@ -27,17 +27,21 @@ const About = () => {
                 <img className="rounded-img" src={require("./../../../assets/images/apexsql-logo.png")} alt="ApexSQL logo" />
             </a>
             <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (06/2017 - 08/2017)</i></p>
-            <p><i>My job was developing feature on <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
-                target="_blank" rel="noopener noreferrer"><u>ApexSQL Monitor</u></a> - SQL monitoring tool with another intern in Novi Sad office.
+            <p><i>
+                My job was developing feature on <a href="https://www.apexsql.com/sql-tools-monitor.aspx" target="_blank" rel="noopener noreferrer">
+                    <u>ApexSQL Monitor</u></a> - SQL monitoring tool with another intern in Novi Sad office.
                 We worked with .NET technologies, AngularJS, Kendo grid, bootstrap, html, css.
                 We were communicate with 6 other interns (Belgrade and Niš office), fixing bugs and doing each other code review.
 		    </i></p>
             <hr />
-            <p><b><u>Stefantflc.me</u></b></p>
-            Under the app is MySQL, storing users and client details - (ipinfo.io api scrap client ip, city,country, location, user agent...)
-            The whole app is hosted on Heroku, but there is RethinkDB (push json to app in realtime) deployed on DigitalOcean droplet which is used for chat.
-            Backend is written in Java 8 and Spring Boot framework, for security i'm using Spring security and JWT.
-            Frontend is written in React, also i'm using Redux for state management.
+            <p><b><u>Workstation technology stack</u></b></p>
+            <p><i>
+                Under the app is MySQL, storing users and client details - (<a href="https://ipinfo.io/json" target="_blank" rel="noopener noreferrer">
+                    <u>ipinfo.io</u></a> scrap ip data and js get client clicks) The whole app is hosted on Heroku,
+                but there is <a href="https://rethinkdb.com/" target="_blank" rel="noopener noreferrer"><u>RethinkDB</u></a> (push json in realtime)
+                deployed on DigitalOcean droplet which i use for chat. Backend is written in Java 8 and Spring Boot framework,
+                for security i'm using Spring Security and JWT. Frontend is written in React, also i'm using Redux for state management.
+            </i></p>
         </div>
     );
 };

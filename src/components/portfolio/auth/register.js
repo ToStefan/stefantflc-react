@@ -27,6 +27,11 @@ class Register extends Component {
         }
     }
 
+    componentWillMount() {
+        this.props.data.regMsgClass = this.props.data.regMsgClassDefault;
+        this.props.data.regMsg = this.props.data.regMsgDefault;
+    }
+
     render() {
         return this.props.data.isLogged === false ?
             (<div className="container box middle-box">
