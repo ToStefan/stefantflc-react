@@ -33,13 +33,6 @@ const About = () => {
                 We were communicate with 6 other interns (Belgrade and Niš office), fixing bugs and doing each other code review.
 		    </i></p>
             <hr />
-            <p><b><u>Me</u></b></p>
-            <p><i>
-                I like to try everything and see if its fits to me but my main focus now is fullstack development in java and javascript.
-                I'm familiar with spring boot, hibernate, servlets, rest services, react, sql, nosql...
-                In near future i would like to work with it systems that need high level of security also i want to go into data engineering.
-             </i></p>
-            <hr />
             <p><b><u>Stefantflc.me</u></b></p>
             Under the app is MySQL, storing users and client details - (ipinfo.io api scrap client ip, city,country, location, user agent...)
             The whole app is hosted on Heroku, but there is RethinkDB (push json to app in realtime) deployed on DigitalOcean droplet which is used for chat.
