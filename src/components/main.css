@@ -35,6 +35,16 @@ a {
 	border-radius: 6px;
 }
 
+.left-link {
+    float: left;
+    padding-left: 8%;
+}
+
+.right-link {
+    float: right;
+	padding-right: 8%;
+}
+
 .box input {
     text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
