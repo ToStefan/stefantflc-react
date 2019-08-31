@@ -50,9 +50,14 @@ class ChatContainer extends Component {
         this.scrollToBottom();
     }
 
+    componentWillUnmount() {
+        this.props.data.errorMsg = "";
+    }
+
     render() {
         return (
             <div className="container box middle-box">
+                <p className="error-text">{this.props.data.errorMsg}</p>
                 <ChatMessages {...this.props} />
                 <ChatForm sendMessage={this.sendMessage} />
             </div>
@@ -62,7 +67,7 @@ class ChatContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data: state.chat.messages,
+        data: state.chat,
         loggedUser: state.auth.loggedUser
     }
 }

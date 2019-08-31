@@ -6,7 +6,7 @@ const capitalizeString = (string) => {
 
 const ChatMessages = (props) => {
     const loggedUser = props.loggedUser;
-    const messages = props.data;
+    const messages = props.data.messages;
     let msgListContent = null;
     messages ?
         msgListContent = messages.map((msg, index) => (

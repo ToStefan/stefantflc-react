@@ -2,11 +2,23 @@ import axios from 'axios';
 import { API_URL } from '../config';
 
 export function previousMessages() {
-    const request = axios.get(`${API_URL}/chat/global_channel`).then(res => res.data);
+    const request = axios.get(`${API_URL}/chat/global_channel`);
+    return request.then(
+        res => previousMessagesSuccess(res.data.token),
+        err => previousMessagesError()
+    );
+}
 
+function previousMessagesSuccess(data) {
     return {
         type: 'CHAT_GLOBAL_MESSAGES',
-        payload: request
+        payload: data
+    }
+}
+
+function previousMessagesError() {
+    return {
+        type: 'CHAT_GLOBAL_MESSAGES_ERROR',
     }
 }
 

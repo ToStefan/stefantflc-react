@@ -52,7 +52,7 @@ const Routes = () => {
                 <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
                 <Route path="/collections" exact component={() =>
                     <Auth roleLevel={0}>
-                        <PushClientDetails path={"collections"}>
+                        <PushClientDetails path={"Collections"}>
                             <Collections />
                         </PushClientDetails>
                     </Auth>} />
