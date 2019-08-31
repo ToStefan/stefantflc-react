@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { pushClientDetails } from '../../actions';
+import { pushClientDetails } from '../actions';
 
 class PushClientDetails extends Component {
 

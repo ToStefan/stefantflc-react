@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import NotAuthorized from './../not_authorized';
+import NotAuthorized from '../widgets/not_authorized';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { loadUser } from '../../actions';
+import { loadUser } from '../actions';
 
 class Auth extends Component {
 

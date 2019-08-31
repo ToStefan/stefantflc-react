@@ -1,0 +1,42 @@
+.collection-folder {
+    float: left;
+    width: 16%;
+    margin-top: 1%;
+}
+
+.collection-folder img {
+    width: 90px;
+    height: 70px;
+}
+
+.image-input {
+    border-radius: 15px;
+    padding: 6px;
+    height: 100% !important;
+}
+
+.image-container {
+    float: left;
+    width: 20%;
+}
+
+.image-container img {
+    width: 80%;
+    max-height: 180px;
+    min-height: 180px;
+    margin-bottom: 20%;
+}
+
+.image-container img:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+    .collection-folder, .image-container {
+        width: 100%;
+    }
+    .image-container img {
+        margin-top: 15%;
+        margin-bottom: 0;
+    }
+}

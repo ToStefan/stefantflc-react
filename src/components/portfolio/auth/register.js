@@ -79,7 +79,7 @@ class Register extends Component {
                             name="key"
                             type="text"
                             autoComplete="off"
-                            placeholder="Enter the key (not requred)" />
+                            placeholder="Enter the key (optional)" />
                     </div>
                     <button className="error-btn" type="submit" disabled={this.props.data.regBtnDisabled}>Join the network</button>
                 </form>
