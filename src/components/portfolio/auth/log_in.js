@@ -10,7 +10,7 @@ class LogIn extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.data.loginBtnDisabled = true;
-        this.forceUpdate();
+        this.forceUpdate(); //??
         this.props.login(e.target.username.value, e.target.password.value);
     }
 

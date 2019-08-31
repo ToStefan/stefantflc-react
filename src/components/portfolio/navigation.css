@@ -14,7 +14,7 @@ a:hover {
     background: none !important;
 }
 
-nav a:focus {
+nav a:focus, .nav .open > a {
     background: none !important;
 }
 
@@ -28,6 +28,15 @@ nav a:focus {
 
 .navbar-right {
     width: 30% !important;
+}
+
+.dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.80) !important;
+    border-radius: 7px;
+}
+
+.link-mobile {
+    display: none !important;
 }
 
 @media only screen and (max-width: 767px) {
@@ -48,5 +57,11 @@ nav a:focus {
     }
     .navbar-left, .navbar-right{
         width: 100% !important;
+    }
+    .link-mobile {
+        display: block !important;
+    }
+    .dropdown {
+        display: none !important;
     }
 }

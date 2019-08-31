@@ -1,5 +1,5 @@
-const API_URL = "https://www.stefantflc.me/api";
-const WS_URL = "https://www.stefantflc.me/chatWS";
+const API_URL = "http://localhost:8090/api";
+const WS_URL = "http://localhost:8090/chatWS";
 
 export {
     API_URL,

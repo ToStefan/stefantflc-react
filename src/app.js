@@ -7,6 +7,7 @@ const App = () => {
     return (
         <HashRouter>
             <Switch>
+
                 <Route path="/" component={PortfolioRoutes} />
                 <Route component={PortfolioRoutes} />
             </Switch>

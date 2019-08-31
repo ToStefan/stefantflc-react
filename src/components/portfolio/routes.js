@@ -14,10 +14,13 @@ import Navigation from './navigation';
 
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
-import ChatContainer from './../chat/chat_container';
+import ChatContainer from '../chat/chat_container';
+import Collections from '../collection/collections';
+import UploadContainer from '../collection/upload/upload_container';
+import CollectionImages from '../collection/collection_images';
 
-import Auth from './../hoc/auth';
-import PushClientDetails from './../hoc/push_client_details';
+import Auth from '../../hoc/auth';
+import PushClientDetails from '../../hoc/push_client_details';
 
 import '../main.css';
 
@@ -47,6 +50,9 @@ const Routes = () => {
                 <Route path="/register" exact component={Register} />
 
                 <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
+                <Route path="/collections" exact component={Collections} />
+                <Route path="/collections/:id" exact component={CollectionImages} />
+                <Route path="/collection/upload" exact component={() => <Auth roleLevel={5}><UploadContainer /></Auth>} />
 
                 <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
                 <Route path="/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
