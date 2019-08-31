@@ -50,8 +50,13 @@ const Routes = () => {
                 <Route path="/register" exact component={Register} />
 
                 <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
-                <Route path="/collections" exact component={Collections} />
-                <Route path="/collections/:id" exact component={CollectionImages} />
+                <Route path="/collections" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"collections"}>
+                            <Collections />
+                        </PushClientDetails>
+                    </Auth>} />
+                <Route path="/collections/:id" exact component={() => <Auth roleLevel={1}><CollectionImages /></Auth>} />
                 <Route path="/collection/upload" exact component={() => <Auth roleLevel={5}><UploadContainer /></Auth>} />
 
                 <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
