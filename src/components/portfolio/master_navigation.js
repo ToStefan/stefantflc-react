@@ -8,7 +8,7 @@ import { loadUser } from '../../actions';
 class MasterNavigation extends Component {
 
     renderNavigation = () => (
-        this.props.data.role >= 5 ?
+        parseInt(this.props.data.role) >= 5 ?
             <nav className="navbar admin-nav">
                 <div className="navbar-header">
                     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#toggleadminnav">
