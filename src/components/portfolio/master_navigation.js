@@ -7,35 +7,33 @@ import { loadUser } from '../../actions';
 
 class MasterNavigation extends Component {
 
-    renderNavigation = () => (
-        parseInt(this.props.data.role) >= 5 ?
-            <nav className="navbar admin-nav">
-                <div className="navbar-header">
-                    <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#toggleadminnav">
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                        <span className="icon-bar"></span>
-                    </button>
-                </div>
-                <div className="collapse navbar-collapse" id="toggleadminnav">
-                    <ul className="nav navbar-nav navbar-right">
-                        <li><Link to="/collection/upload"><i class="fas fa-file-upload"></i> Upload Collection</Link></li>
-                        <li><Link to="/client-details"><i className="fas fa-user-secret"></i> Client Details</Link></li>
-                    </ul>
-                </div>
-            </nav>
-            :
-            null
-    )
-
-    componentWillMount() {
-        if (localStorage.getItem('token') != null) {
+    componentWillUpdate() {
+        if (this.props.data.isLogged !== true) {
             this.props.loadUser();
         }
     }
 
     render() {
-        return (this.renderNavigation());
+        return (
+            this.props.data.role >= 5 ?
+                <nav className="navbar admin-nav">
+                    <div className="navbar-header">
+                        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#toggleadminnav">
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                            <span className="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div className="collapse navbar-collapse" id="toggleadminnav">
+                        <ul className="nav navbar-nav navbar-right">
+                            <li><Link to="/collection/upload"><i className="fas fa-file-upload"></i> Upload Collection</Link></li>
+                            <li><Link to="/client-details"><i className="fas fa-user-secret"></i> Client Details</Link></li>
+                        </ul>
+                    </div>
+                </nav>
+                :
+                null
+        );
     }
 }
 

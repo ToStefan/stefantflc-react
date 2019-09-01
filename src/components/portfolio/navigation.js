@@ -46,7 +46,7 @@ class Navigation extends Component {
                         <li className="link-mobile"><Link to="/collections"><i className="fas fa-images"></i> Collections</Link></li>
                         <li className="dropdown">
                             <a href="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-angle-double-right"></i> More <span className="caret"></span></a>
+                                <i className="fas fa-angle-double-right"></i> More <span className="caret"></span></a>
                             <ul className="dropdown-menu">
                                 <li><Link to="/slb-info"><i className="fas fa-leaf"></i> Super Lazy Boot</Link></li>
                                 <li role="separator" className="divider"></li>

@@ -66,8 +66,7 @@ const Routes = () => {
                 <Route component={Contact} />
             </Switch>
 
-            <MasterNavigation />
-
+            <Auth roleLevel={0}><MasterNavigation /></Auth>
         </div>
     );
 };

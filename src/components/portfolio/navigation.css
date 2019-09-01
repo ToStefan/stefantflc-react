@@ -23,11 +23,11 @@ nav a:focus, .nav .open > a {
 }
 
 .navbar-left {
-    padding-left: 8%;
+    padding-left: 7%;
 }
 
 .navbar-right {
-    padding-right: 8%;
+    padding-right: 7%;
 }
 
 .dropdown-menu {
