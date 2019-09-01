@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { clientDetailsByIpList } from './../../../actions';
-import './client_details.css'
 
 class ClientDetailsIp extends Component {
 
@@ -35,7 +34,7 @@ class ClientDetailsIp extends Component {
         return (
             <div className="box container">
                 <div className="row">
-                    <div className="col left-link"><Link to="/client-details"><i><b>Go back</b></i></Link></div>
+                    <div className="col left-link"><Link to="/client-details"><i><b>Go Back</b></i></Link></div>
                     <div className="col right-link"><Link to={`/client-details/${this.props.match.params.ip}`}><i><b>Refrash</b></i></Link></div>
                 </div>
                 <hr />
@@ -61,7 +60,7 @@ class ClientDetailsIp extends Component {
                 </table>
                 <hr />
                 <div className="row">
-                    <div className="col left-link"><Link to="/client-details"><i><b>Go back</b></i></Link></div>
+                    <div className="col left-link"><Link to="/client-details"><i><b>Go Back</b></i></Link></div>
                     <div className="col right-link"><Link to={`/client-details/${this.props.match.params.ip}`}><i><b>Refrash</b></i></Link></div>
                 </div>
             </div>

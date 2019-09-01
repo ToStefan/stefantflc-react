@@ -4,7 +4,7 @@ import { API_URL } from '../config';
 export function previousMessages() {
     const request = axios.get(`${API_URL}/chat/global_channel`);
     return request.then(
-        res => previousMessagesSuccess(res.data.token),
+        res => previousMessagesSuccess(res.data),
         err => previousMessagesError()
     );
 }

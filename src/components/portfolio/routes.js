@@ -11,6 +11,7 @@ import LogIn from './auth/log_in';
 import HubSpotForm from './hubspot_form/hubspot_form';
 
 import Navigation from './navigation';
+import MasterNavigation from './master_navigation';
 
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
@@ -64,6 +65,8 @@ const Routes = () => {
 
                 <Route component={Contact} />
             </Switch>
+
+            <MasterNavigation />
 
         </div>
     );

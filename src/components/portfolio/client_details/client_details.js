@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import { clientDetailsList } from './../../../actions';
 import './client_details.css'
+import GoTo from '../../../widgets/go_to.js';
 
 class ClientDetails extends Component {
 
@@ -50,10 +51,7 @@ class ClientDetails extends Component {
                         {this.renderTableData(this.props.data)}
                     </tbody>
                 </table>
-                <hr />
-                <div className="row">
-                    <div className="col right-link"><Link to="/client-details"><i><b>Refrash</b></i></Link></div>
-                </div>
+                <GoTo to="/client-details" side="right" text="Refrash" />
             </div>
         );
     }

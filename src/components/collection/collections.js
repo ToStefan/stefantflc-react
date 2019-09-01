@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 
 import { loadAllCollections } from '../../actions';
 import './collection.css';
-import GoTo from '../../widgets/go_to';
 
 class Collections extends Component {
 
@@ -32,7 +31,6 @@ class Collections extends Component {
                 <div className="row">
                     {this.renderCollections(this.props.data.collections)}
                 </div>
-                <GoTo side="right" to="/collection/upload" text="Upload" />
             </div>
         );
     }

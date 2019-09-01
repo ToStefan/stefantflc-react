@@ -18,7 +18,6 @@ class Navigation extends Component {
     renderRightNav = () => (
         this.props.data.isLogged !== false ?
             <ul className="nav navbar-nav navbar-right">
-                <li><Link to="/client-details"><i className="fas fa-user-secret"></i> Client Details</Link></li>
                 <li><Link to="/contact" onClick={this.props.logout}><i className="fas fa-sign-out-alt"></i> Logout</Link></li>
             </ul>
             :
@@ -42,13 +41,15 @@ class Navigation extends Component {
                     <ul className="nav navbar-nav navbar-left">
                         <li><Link to="/contact"><i className="far fa-address-card"></i> Contact</Link></li>
                         <li><Link to="/about"><i className="fas fa-info-circle"></i> About</Link></li>
-                        <li><Link to="/slb-info"><i className="fas fa-leaf"></i> Super Lazy Boot</Link></li>
+                        <li className="link-mobile"><Link to="/slb-info"><i className="fas fa-leaf"></i> Super Lazy Boot</Link></li>
                         <li className="link-mobile"><Link to="/chat"><i className="fas fa-comments"></i> Chat</Link></li>
                         <li className="link-mobile"><Link to="/collections"><i className="fas fa-images"></i> Collections</Link></li>
                         <li className="dropdown">
                             <a href="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                Other <span className="caret"></span></a>
+                                <i class="fas fa-angle-double-right"></i> More <span className="caret"></span></a>
                             <ul className="dropdown-menu">
+                                <li><Link to="/slb-info"><i className="fas fa-leaf"></i> Super Lazy Boot</Link></li>
+                                <li role="separator" className="divider"></li>
                                 <li><Link to="/chat"><i className="fas fa-comments"></i> Chat</Link></li>
                                 <li role="separator" className="divider"></li>
                                 <li><Link to="/collections"><i className="fas fa-images"></i> Collections</Link></li>

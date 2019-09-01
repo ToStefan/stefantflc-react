@@ -23,15 +23,15 @@ nav a:focus, .nav .open > a {
 }
 
 .navbar-left {
-    width: 70% !important;
+    padding-left: 8%;
 }
 
 .navbar-right {
-    width: 30% !important;
+    padding-right: 8%;
 }
 
 .dropdown-menu {
-    background-color: rgba(0, 0, 0, 0.80) !important;
+    background-color: rgba(0, 0, 0, 0.85) !important;
     border-radius: 7px;
 }
 
@@ -55,13 +55,20 @@ nav a:focus, .nav .open > a {
     nav a {
         line-height: 10px !important;
     }
-    .navbar-left, .navbar-right{
-        width: 100% !important;
-    }
     .link-mobile {
         display: block !important;
     }
     .dropdown {
         display: none !important;
+    }
+    .navbar-left {
+        padding-left: 0;
+    }
+    
+    .navbar-right {
+        padding-right: 0;
+    }
+    .admin-nav {
+        margin-top: 5%;
     }
 }

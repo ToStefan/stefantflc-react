@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from "react-router-dom";
 
 import { loadImagesByCollection, unloadCollections } from '../../actions';
 import './collection.css';
@@ -55,4 +56,4 @@ class CollectionImages extends Component {
 const mapStateToProps = (state) => { return { data: state.collections } }
 const mapDispatchToProps = (dispatch) => { return bindActionCreators({ loadImagesByCollection, unloadCollections }, dispatch) }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CollectionImages);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CollectionImages));
