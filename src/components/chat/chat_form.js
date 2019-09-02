@@ -10,7 +10,7 @@ const ChatForm = (props) => {
                         name="message"
                         autoComplete="off"
                         placeholder="Start typing..." />
-                    <button className="success-btn" type="submit">send</button>
+                    <button type="submit">Send</button>
                 </div>
             </form>
         </div>

@@ -32,28 +32,28 @@ const Routes = () => {
 
             <Switch>
                 <Route path="/contact" exact component={Contact} />
-                <Route path="/slb-info" exact component={() =>
-                    <Auth roleLevel={0}>
-                        <PushClientDetails path={"Slb Info"}>
-                            <SlbInfo />
-                        </PushClientDetails>
-                    </Auth>} />
+                <Route path="/slb-info" exact component={() => <Auth roleLevel={1}><SlbInfo /></Auth>} />
                 <Route path="/about" exact component={() =>
                     <Auth roleLevel={0}>
-                        <PushClientDetails path={"About"}>
+                        <PushClientDetails path={"about"}>
                             <About />
                         </PushClientDetails>
                     </Auth>} />
 
                 <Route path="/hubspot-form" exact component={HubSpotForm} />
 
-                <Route path="/log-in" exact component={LogIn} />
+                <Route path="/log-in" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"log-in"}>
+                            <LogIn />
+                        </PushClientDetails>
+                    </Auth>} />
                 <Route path="/register" exact component={Register} />
 
                 <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
                 <Route path="/collections" exact component={() =>
                     <Auth roleLevel={0}>
-                        <PushClientDetails path={"Collections"}>
+                        <PushClientDetails path={"collections"}>
                             <Collections />
                         </PushClientDetails>
                     </Auth>} />
