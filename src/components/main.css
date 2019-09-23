@@ -38,7 +38,9 @@ a {
 }
 
 .rounded-img {
-	border-radius: 6px;
+    border-radius: 6px;
+    width:89px;
+    height:23px;
 }
 
 .left-link {

@@ -10,7 +10,7 @@ const About = () => {
             <a href="http://www.hybrid-it.rs/" target="_blank" rel="noopener noreferrer">
                 <img className="rounded-img" src={require("./../../../assets/images/hybrid-logo.png")} alt="Hybrid IT logo" />
             </a>
-            <p><i><b>Hybrid IT Solutions</b> - One month internship as Java backend developer (05/2019 - 06/2019)</i></p>
+            <p><i><b>Hybrid IT Solutions</b> - One month internship as Java backend developer (20/05/2019 - 07/06/2019)</i></p>
             <p><i>
                 In 3 weeks i developed Java
                 (spring boot and spring security frameworks) <a href="https://github.com/ToStefan/hybrid-it-lib" target="_blank" rel="noopener noreferrer">
@@ -26,13 +26,23 @@ const About = () => {
             <a href="https://www.apexsql.com/" target="_blank" rel="noopener noreferrer">
                 <img className="rounded-img" src={require("./../../../assets/images/apexsql-logo.png")} alt="ApexSQL logo" />
             </a>
-            <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (06/2017 - 08/2017)</i></p>
+            <p><i><b>ApexSQL</b> - Two month paid intership as fullstack .NET developer (19/06/2017 - 18/08/2017)</i></p>
             <p><i>
-                My job was developing feature on <a href="https://www.apexsql.com/sql-tools-monitor.aspx" target="_blank" rel="noopener noreferrer">
-                    <u>ApexSQL Monitor</u></a> - SQL monitoring tool with another intern in Novi Sad office.
+                My job was developing feature on <a href="https://www.apexsql.com/sql-tools-monitor.aspx"
+                    target="_blank" rel="noopener noreferrer"><u>ApexSQL Monitor</u></a> - SQL monitoring tool with another intern in Novi Sad office.
                 We worked with .NET technologies, AngularJS, Kendo grid, bootstrap, html, css.
                 We were communicate with 6 other interns (Belgrade and Niš office), fixing bugs and doing each other code review.
-		    </i></p>
+		    </i></p> <br />
+            <a href="http://www.tiacgroup.com/" target="_blank" rel="noopener noreferrer">
+                <img className="rounded-img" src={require("./../../../assets/images/tiac-logo.png")} alt="Tiac logo" />
+            </a>
+            <p><i><b>Tiac Group</b> - Go4Code (02/09/2019 - 20/09/2019)</i></p>
+            <p><i>
+                During first and second week 15 of us who were learning Spring and Angular framework.
+                Third week was planed for <a href="https://www.misystemsgroup.com/sr/karijera/postani-deo-tima/go4code/"
+                    target="_blank" rel="noopener noreferrer"><u>Hackaton</u></a>, where we are splited into 3 teams.
+                 We had 30 hours to finish the task, and then present it last day. My team won the hackaton.
+            </i></p>
             <hr />
             <p><b><u>Workstation technology stack</u></b></p>
             <p><i>

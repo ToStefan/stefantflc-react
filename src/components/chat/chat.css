@@ -82,18 +82,16 @@
 .msg-field-form input {
     float:left;
     text-align: left !important;
-    width: 86% !important;
+    width: 84% !important;
     border: none;
 }
 
 .msg-field-form button {
     float:right;
-    background-color:rgba(13, 199, 143, 0.3);
-    width: 12%;
-    border: 1px solid rgb(255, 255, 255);   
+    height: 40px;
 }
 
-.msg-field-form input, .msg-field-form button {
+.msg-field-form input {
     border-radius: 15px;
     height: 40px;
 }
