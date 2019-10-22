@@ -19,6 +19,7 @@ import ChatContainer from '../chat/chat_container';
 import Collections from '../collection/collections';
 import UploadContainer from '../collection/upload/upload_container';
 import CollectionImages from '../collection/collection_images';
+import News from '../news/news';
 
 import Auth from '../../hoc/auth';
 import PushClientDetails from '../../hoc/push_client_details';
@@ -51,17 +52,25 @@ const Routes = () => {
                 <Route path="/register" exact component={Register} />
 
                 <Route path="/chat" exact component={() => <Auth roleLevel={1}><ChatContainer /></Auth>} />
-                <Route path="/collections" exact component={() =>
+
+                <Route path="/collections" exact component={Collections} />
+                <Route path="/collections/:id" exact component={() =>
                     <Auth roleLevel={0}>
-                        <PushClientDetails path={"collections"}>
-                            <Collections />
+                        <PushClientDetails path={"collection images"}>
+                            <CollectionImages />
                         </PushClientDetails>
                     </Auth>} />
-                <Route path="/collections/:id" exact component={() => <Auth roleLevel={1}><CollectionImages /></Auth>} />
                 <Route path="/collection/upload" exact component={() => <Auth roleLevel={5}><UploadContainer /></Auth>} />
 
                 <Route path="/client-details" exact component={() => <Auth roleLevel={5}><ClientDetails /></Auth>} />
                 <Route path="/client-details/:ip" exact component={(props) => <Auth roleLevel={5}><ClientDetailsIp {...props} /></Auth>} />
+
+                <Route path="/news" exact component={() =>
+                    <Auth roleLevel={0}>
+                        <PushClientDetails path={"news"}>
+                            <News />
+                        </PushClientDetails>
+                    </Auth>} />
 
                 <Route component={Contact} />
             </Switch>

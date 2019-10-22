@@ -43,10 +43,13 @@ class Navigation extends Component {
                         <li><Link to="/about"><i className="fas fa-info-circle"></i> About</Link></li>
                         <li className="link-mobile"><Link to="/chat"><i className="fas fa-comments"></i> Chat</Link></li>
                         <li className="link-mobile"><Link to="/collections"><i className="fas fa-images"></i> Collections</Link></li>
+                        <li className="link-mobile"><Link to="/news"><i className="fas fa-video"></i> Filmske novosti</Link></li>
                         <li className="dropdown">
                             <a href="/" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                 <i className="fas fa-angle-double-right"></i> More <span className="caret"></span></a>
                             <ul className="dropdown-menu">
+                                <li><Link to="/news"><i className="fas fa-video"></i> Filmske novosti</Link></li>
+                                <li role="separator" className="divider"></li>
                                 <li><Link to="/chat"><i className="fas fa-comments"></i> Chat</Link></li>
                                 <li role="separator" className="divider"></li>
                                 <li><Link to="/collections"><i className="fas fa-images"></i> Collections</Link></li>
