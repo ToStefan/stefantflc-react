@@ -15,16 +15,17 @@ import MasterNavigation from './master_navigation';
 
 import ClientDetails from './client_details/client_details';
 import ClientDetailsIp from './client_details/client_details_ip';
-import ChatContainer from '../chat/chat_container';
-import Collections from '../collection/collections';
-import UploadContainer from '../collection/upload/upload_container';
-import CollectionImages from '../collection/collection_images';
-import News from '../news/news';
+import ChatContainer from './chat/chat_container';
+import Collections from './collection/collections';
+import UploadContainer from './collection/upload/upload_container';
+import CollectionImages from './collection/collection_images';
+import News from './news/news';
+import FcsArticle from './news/fcs/fcs_article';
 
-import Auth from '../../hoc/auth';
-import PushClientDetails from '../../hoc/push_client_details';
+import Auth from '../hoc/auth';
+import PushClientDetails from '../hoc/push_client_details';
 
-import '../main.css';
+import './main.css';
 
 const Routes = () => {
     return (
@@ -71,6 +72,7 @@ const Routes = () => {
                             <News />
                         </PushClientDetails>
                     </Auth>} />
+                <Route path="/news/fcs/:id" exact component={(props) => <FcsArticle {...props} />} />
 
                 <Route component={Contact} />
             </Switch>

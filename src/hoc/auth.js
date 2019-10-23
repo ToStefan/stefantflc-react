@@ -7,7 +7,7 @@ import { loadUser } from '../actions';
 
 class Auth extends Component {
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('token') != null) {
             this.props.loadUser();
         }

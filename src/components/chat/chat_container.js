@@ -40,7 +40,7 @@ class ChatContainer extends Component {
         }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.loadUser();
         this.props.previousMessages();
         this.connectWebSocket();

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { loadUser } from '../../actions';
+import { loadUser } from '../actions';
 
 class MasterNavigation extends Component {
 
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
         if (this.props.data.isLogged !== true) {
             this.props.loadUser();
         }

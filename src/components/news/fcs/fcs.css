@@ -1,0 +1,19 @@
+.fcs-slider:hover {
+    cursor: pointer !important;
+}
+
+.article-content img {
+    width:85% !important;
+    height: 50vh !important;
+}
+
+.article-content div {
+    width:100% !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .article-content img {
+        width:95% !important;
+        height: 25vh !important;
+    }
+}

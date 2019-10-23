@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { register } from '../../../actions';
+import { register } from '../../actions';
 
 class Register extends Component {
 
@@ -27,7 +27,7 @@ class Register extends Component {
         }
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.data.regMsgClass = this.props.data.regMsgClassDefault;
         this.props.data.regMsg = this.props.data.regMsgDefault;
     }

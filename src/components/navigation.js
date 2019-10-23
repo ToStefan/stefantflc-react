@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { logout, loadUser } from '../../actions';
+import { logout, loadUser } from '../actions';
 
 import './navigation.css';
 
 class Navigation extends Component {
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         if (localStorage.getItem('token') != null) {
             this.props.loadUser();
         }

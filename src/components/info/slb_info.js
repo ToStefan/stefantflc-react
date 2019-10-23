@@ -12,7 +12,7 @@ const SlbInfo = () => {
                 type of application, such as e-commerce as well generating online and downloading source code.
                  Code generator will be same, written in Python.
             </i></p>
-            <img id="snake-img" className="rounded-img" src={require("./../../../assets/images/snake.gif")} alt="snake gif" />
+            <img id="snake-img" className="rounded-img" src={require("../../assets/images/snake.gif")} alt="snake gif" />
             <p><br /><i>You can find <a href="https://github.com/ToStefan/Super-Lazy-Boot"
                 target="_blank" rel="noopener noreferrer"><u>source code</u></a> on my github.</i></p>
         </div>

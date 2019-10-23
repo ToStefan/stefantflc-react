@@ -1,15 +1,15 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
-import PortfolioRoutes from './components/portfolio/routes';
+import Routes from './components/routes';
 
 const App = () => {
     return (
         <HashRouter>
             <Switch>
 
-                <Route path="/" component={PortfolioRoutes} />
-                <Route component={PortfolioRoutes} />
+                <Route path="/" component={Routes} />
+                <Route component={Routes} />
             </Switch>
         </HashRouter>
     )

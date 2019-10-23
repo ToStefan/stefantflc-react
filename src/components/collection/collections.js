@@ -19,7 +19,7 @@ class Collections extends Component {
                 </div>)) : null
     )
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.loadAllCollections();
     }
 

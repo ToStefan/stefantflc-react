@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FcsNews from './fcs_news';
+import FcsNews from './fcs/fcs_news';
 
 const News = () => {
     return (

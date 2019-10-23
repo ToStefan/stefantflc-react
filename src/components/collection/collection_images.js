@@ -28,7 +28,7 @@ class CollectionImages extends Component {
                 </div>)) : null
     )
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.loadImagesByCollection(this.props.match.params.id);
     }
 

@@ -44,7 +44,7 @@ class CollectionUpload extends Component {
         e.target.description.value = "";
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         this.props.loadUser();
         this.props.loadAllCollections();
         this.props.resetStatusMsg();
